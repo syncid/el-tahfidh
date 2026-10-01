@@ -11,5 +11,10 @@ __pycache__/
 .venv/
 venv/
 
+# LOKAL SAJA: cermin situs pihak lain (HTTrack, ~379 MB).
+# Sengaja tidak di-track: diabaikan git, tidak naik ke GitHub/klon cloud.
+# Lihat docs/07-referensi-lokal.md untuk memulihkan dari backup.
+/referensi/
+
 # Catatan: vendor/ plugin WordPress diabaikan oleh
 # wp-content/plugins/my-custom-app/.gitignore (dibuat ulang oleh `composer install`).
