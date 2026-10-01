@@ -32,7 +32,7 @@ Buka `http://127.0.0.1:8081/`.
 
 ## Kerja di cloud (GitHub Codespaces)
 
-Repo ini sudah menyertakan `.devcontainer/devcontainer.json` (PHP 8.2 + Composer, Python 3,
+Repo ini sudah menyertakan `.devcontainer/devcontainer.json` (PHP 8.3 + Composer, Python 3,
 GitHub CLI), jadi tidak perlu setup manual.
 
 1. Di halaman repo di GitHub: **Code → Codespaces → Create codespace on main**.

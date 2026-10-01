@@ -1,6 +1,6 @@
 {
   "name": "elTAHFIDH (situs statis + plugin WordPress)",
-  "image": "mcr.microsoft.com/devcontainers/php:1-8.2-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/php:8.3-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/python:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
@@ -12,6 +12,7 @@
       "onAutoForward": "notify"
     }
   },
+  "onCreateCommand": "cd wp-content/plugins/my-custom-app && composer install --no-interaction --no-progress || echo '[setup] composer install dilewati, jalankan manual bila perlu'",
   "customizations": {
     "vscode": {
       "extensions": [
