@@ -1,0 +1,25 @@
+{
+  "name": "elTAHFIDH (situs statis + plugin WordPress)",
+  "image": "mcr.microsoft.com/devcontainers/php:1-8.2-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [8081],
+  "portsAttributes": {
+    "8081": {
+      "label": "Pratinjau situs",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "ms-python.python",
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}

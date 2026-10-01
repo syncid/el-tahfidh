@@ -1,0 +1,15 @@
+# Sampah OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*:Zone.Identifier
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Catatan: vendor/ plugin WordPress diabaikan oleh
+# wp-content/plugins/my-custom-app/.gitignore (dibuat ulang oleh `composer install`).

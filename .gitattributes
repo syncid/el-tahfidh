@@ -1,0 +1,25 @@
+# Normalisasi baris baru: simpan LF di repo, apa pun OS-nya.
+* text=auto
+
+# Biner (jangan di-diff/di-konversi)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.svg text
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+*.pdf binary
+*.zip binary
+*.mp4 binary
+*.webm binary
+*.sample binary
+
+# Skrip Windows harus tetap CRLF saat checkout
+*.bat text eol=crlf
+*.cmd text eol=crlf
