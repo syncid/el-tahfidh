@@ -1,0 +1,42 @@
+name: Deploy site ke GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      # Sparse checkout: hanya ambil folder site/ (repo 390 MB, site hanya ~6 MB)
+      - name: Checkout folder site saja
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            site
+          sparse-checkout-cone-mode: false
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artefak
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy ke GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
