@@ -1,4 +1,9 @@
-name: Deploy site ke GitHub Pages
+name: Deploy site ke GitHub Pages (nonaktif - repo privat + plan Free)
+
+# DINONAKTIFKAN: akun Free + repo privat TIDAK mendukung GitHub Pages.
+# Cara mengaktifkan nanti: jadikan repo publik ATAU upgrade ke Pro/Team,
+# lalu hapus baris `if: false` di bawah + aktifkan workflow di Actions.
+# Terakhir diubah: workflow dinonaktifkan via API (state: disabled_manually).
 
 on:
   push:
@@ -19,6 +24,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: false # <-- hapus baris ini saat Pages sudah diaktifkan
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
