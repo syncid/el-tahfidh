@@ -35,7 +35,7 @@ Tanpa server pun bisa: buka `site\index.html` langsung — situs tanpa build ste
 | Tujuan | Cara |
 |---|---|
 | Hosting statis apa pun (cPanel, Netlify, dsb.) | Unggah isi `site/` apa adanya |
-| GitHub Pages | **Belum aktif** (repo privat + akun Free). Kalau repo dipublikkan / akun di-upgrade: hapus `if: false` di `.github/workflows/pages.yml` + *Enable* workflow di tab Actions — deploy otomatis tiap push ke `site/`. Detail: `docs/06-operasional.md` |
+| GitHub Pages | **Aktif** — https://syncid.github.io/el-tahfidh/ — deploy otomatis tiap push ke `site/` (workflow `.github/workflows/pages.yml`). Detail: `docs/06-operasional.md` |
 
 ## 3.4 Deploy plugin WordPress
 

@@ -4,7 +4,7 @@
 
 ## 6.1 Git & GitHub
 
-- Repo: `syncid/el-tahfidh` (**privat**), branch `main`, remote `origin` (HTTPS + credential manager).
+- Repo: `syncid/el-tahfidh` (**publik**), branch `main`, remote `origin` (HTTPS + credential manager).
 - Identitas commit repo-lokal: `sync.id <idsyhl@gmail.com>` (diset via `git config` lokal;
   tidak ikut ter-clone — set ulang di tiap Codespace baru, lihat `docs/03`).
   Akun mengizinkan push email asli (pengaturan *"Block command line pushes that expose my email"*
@@ -13,21 +13,22 @@
   Clone cloud session jadi ringan; riwayat commit lama tetap menyimpan `referensi/`
   (±258 MB pack) sampai histori dibersihkan bila diinginkan.
 
-## 6.2 GitHub Pages (belum aktif)
+## 6.2 GitHub Pages (aktif)
 
-Status: workflow `.github/workflows/pages.yml` **siap tapi dinonaktifkan ganda**
-(`disabled_manually` via API + `if: false` di file) karena akun **Free + repo privat**
-tidak mendukung Pages (`422 Your current plan does not support GitHub Pages…`).
+Status: **aktif** — situs live di https://syncid.github.io/el-tahfidh/. Workflow
+`.github/workflows/pages.yml` menyebarkan folder `site/` tiap push ke `site/**`
+atau manual via *workflow_dispatch*. Repo kini publik, sehingga Pages tersedia di
+akun Free.
 
 Mengaktifkan nanti (pilih satu):
 
-| Opsi | Langkah |
-|---|---|
-| Jadikan repo publik | *Settings → Danger Zone → Change visibility* → hapus `if: false` → *Actions → Enable workflow* |
-| Upgrade Pro/Team | Tetap privat → hapus `if: false` → *Enable workflow* |
+Riwayat singkat: deploy pertama gagal karena repo privat di akun Free
+(`422 Your current plan does not support GitHub Pages…`, run `36913681239`).
+Setelah repo dipublikkan dan Pages dibuat lewat API, deploy berjalan normal.
 
-Workflow memakai **sparse checkout** (hanya `site/`) + deploy resmi
-`configure-pages / upload-pages-artifact / deploy-pages`, trigger tiap push ke `site/`.
+Workflow memakai **sparse checkout** (hanya `site/`) + action resmi
+`configure-pages` (dengan `enablement: true`) / `upload-pages-artifact` /
+`deploy-pages`, trigger tiap push ke `site/`.
 
 ## 6.3 Actions
 

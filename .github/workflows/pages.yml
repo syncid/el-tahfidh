@@ -1,9 +1,7 @@
-name: Deploy site ke GitHub Pages (nonaktif - repo privat + plan Free)
+name: Deploy site ke GitHub Pages
 
-# DINONAKTIFKAN: akun Free + repo privat TIDAK mendukung GitHub Pages.
-# Cara mengaktifkan nanti: jadikan repo publik ATAU upgrade ke Pro/Team,
-# lalu hapus baris `if: false` di bawah + aktifkan workflow di Actions.
-# Terakhir diubah: workflow dinonaktifkan via API (state: disabled_manually).
+# Deploy folder site/ ke GitHub Pages. Repo sudah publik sehingga Pages
+# tersedia di akun Free. Dipicu push ke site/ atau manual (workflow_dispatch).
 
 on:
   push:
@@ -24,13 +22,12 @@ concurrency:
 
 jobs:
   deploy:
-    if: false # <-- hapus baris ini saat Pages sudah diaktifkan
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # Sparse checkout: hanya ambil folder site/ (repo 390 MB, site hanya ~6 MB)
+      # Sparse checkout: hanya ambil folder site/ (repo kecil, checkout cepat)
       - name: Checkout folder site saja
         uses: actions/checkout@v4
         with:
@@ -39,6 +36,8 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Upload artefak
         uses: actions/upload-pages-artifact@v3
         with:

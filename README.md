@@ -29,7 +29,7 @@ Hasilnya tidak di-commit (folder lokal saja).
 ```bash
 python -m http.server 8081 --directory site
 ```
-Buka `http://127.0.0.1:8081/`.
+Buka `http://127.0.0.1:8081/`. Lihat juga **situs live**: https://syncid.github.io/el-tahfidh/ (deploy otomatis tiap push ke `site/`).
 
 ## Kerja di cloud (GitHub Codespaces)
 

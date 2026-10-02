@@ -17,7 +17,7 @@ Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya. Diperbarui: Oktober 202
 - ⬜ Galeri foto (`site/galeri.html`, gaya header/footer `kontak.html`) — kandidat task cloud session pertama
 - ⬜ Validasi link internal otomatis tiap ada halaman baru (skrip kecil di `tools/`)
 - ⬜ Optimasi gambar (kompresi ulang aset besar di `source-assets/` sebelum dipakai)
-- ⬜ Aktifkan GitHub Pages (butuh: repo publik ATAU upgrade plan)
+- ✅ GitHub Pages aktif — https://syncid.github.io/el-tahfidh/ (deploy otomatis dari `site/`)
 
 ## Berjalan / berikutnya — Plugin (`my-custom-app`)
 
@@ -29,10 +29,9 @@ Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya. Diperbarui: Oktober 202
 ## Berjalan / berikutnya — Operasional
 
 - ⬜ CI ringan: `php -l` + smoke test tiap push (tidak butuh Pages)
-- ⬜ Branch protection + alur PR (butuh: repo publik ATAU upgrade plan)
-- ⬜ Bersihkan histori git dari blob `referensi/` bila ukuran pack mengganggu
-  (saat ini ±258 MB di histori; clone penuh hanya terjadi sekali per mesin —
-  clone baru tetap ringan karena `main` terbaru sudah tanpa `referensi/`)
+- ⬜ Branch protection + alur PR (repo sudah publik — proteksi siap dipasang)
+- ✅ Histori git bersih dari blob `referensi/` (`git filter-repo`; pack ±258 MB → ±20 MB,
+  0 objek `referensi/` di seluruh histori)
 - ⬜ Jadwal backup `referensi/` lokal (bundle + salinan file) tiap ada update mirror
 
 ## Cara memakai roadmap ini dengan cloud session
