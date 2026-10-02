@@ -28,7 +28,18 @@ Pendukung: skrip Python di `tools/` (ambil berita/artikel dari WP API publik, ba
 3. **Repo privat + akun Free** — GitHub Pages dan branch protection API tidak tersedia sampai repo dipublikkan atau akun di-upgrade (lihat `docs/06-operasional.md`).
 4. **Situs statis tanpa build step** — disengaja agar bisa dibuka langsung (`site/index.html`) dan di-host di mana saja; konsekuensinya konten berita/artikel diperbarui lewat skrip, bukan CMS.
 
-## 1.4 Cara memakai dokumentasi ini
+## 1.4 Lisensi
+
+| Bagian | Lisensi | File |
+|---|---|---|
+| Plugin WordPress `my-custom-app` | **GPL-2.0-or-later** (wajib kompatibel dengan WordPress) | `wp-content/plugins/my-custom-app/LICENSE` |
+| Isi repo lain (situs statis, `tools/`, `docs/`) | **MIT** | `LICENSE` di akar repo |
+
+Ditambahkan oleh kolaborator `AzizHanafi` (Okt 2026). Konsekuensi praktis: kode boleh
+dipakai ulang/dimodifikasi pihak lain **dengan tetap menyertakan lisensinya** — jadi ini
+bukan bagian dari pembatasan akses (lihat diskusi privasi di `docs/06`).
+
+## 1.5 Cara memakai dokumentasi ini
 
 | Saya mau… | Baca |
 |---|---|
