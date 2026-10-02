@@ -16,6 +16,7 @@ ringkasan, diakhiri roadmap. Setiap file punya header navigasi
 | 06 | [Operasional Repo & Cloud](./06-operasional.md) | Git, Pages, Actions, backup folder lokal |
 | 07 | [Folder Referensi Lokal](./07-referensi-lokal.md) | Isi `referensi/`, backup, pemulihan, skrip mirror |
 | 08 | [Roadmap](./08-roadmap.md) | Rencana kerja: selesai, berjalan, berikutnya |
+| 09 | [Hosting & wp-admin](./09-hosting-wordpress.md) | Fakta hosting produksi (StackCP/20i, tanpa cPanel), pasang plugin tanpa panel |
 
 Mulai dari [01 — Ringkasan](./01-ringkasan.md). Ringkasan umum repo tetap ada di
 [README utama](../README.md).

@@ -39,6 +39,12 @@ Tanpa server pun bisa: buka `site\index.html` langsung — situs tanpa build ste
 
 ## 3.4 Deploy plugin WordPress
 
+**Jalur utama (tanpa panel hosting, lewat wp-admin):** ikuti
+[09 — Hosting & wp-admin](./09-hosting-wordpress.md) bagian 9.3 —
+upload `my-custom-app.zip` di *Plugins → Add New Plugin → Upload Plugin*.
+
+Bila memakai jalur manual (SFTP/panel hosting):
+
 1. Di Codespace/lokal: `cd wp-content/plugins/my-custom-app && composer install --no-dev --optimize-autoloader`
    (di Codespace langkah ini sudah otomatis saat pembuatan container).
 2. Salin folder `my-custom-app/` **beserta `vendor/` hasil install** ke
