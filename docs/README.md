@@ -17,6 +17,8 @@ ringkasan, diakhiri roadmap. Setiap file punya header navigasi
 | 07 | [Folder Referensi Lokal](./07-referensi-lokal.md) | Isi `referensi/`, backup, pemulihan, skrip mirror |
 | 08 | [Roadmap](./08-roadmap.md) | Rencana kerja: selesai, berjalan, berikutnya |
 | 09 | [Hosting & wp-admin](./09-hosting-wordpress.md) | Fakta hosting produksi (StackCP/20i, tanpa cPanel), pasang plugin tanpa panel |
+| 10 | [Peta API WordPress](./10-api-wordpress.md) | 355 rute API per namespace + pola kerja kredensial Editor |
+| 11 | [Audit Migrasi](./11-audit-migrasi.md) | Inventaris 32 halaman + 327 postingan → peta migrasi statis |
 
 Mulai dari [01 — Ringkasan](./01-ringkasan.md). Ringkasan umum repo tetap ada di
 [README utama](../README.md).
