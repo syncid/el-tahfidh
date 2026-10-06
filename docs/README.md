@@ -19,6 +19,7 @@ ringkasan, diakhiri roadmap. Setiap file punya header navigasi
 | 09 | [Hosting & wp-admin](./09-hosting-wordpress.md) | Fakta hosting produksi (StackCP/20i, tanpa cPanel), pasang plugin tanpa panel |
 | 10 | [Peta API WordPress](./10-api-wordpress.md) | 355 rute API per namespace + pola kerja kredensial Editor |
 | 11 | [Audit Migrasi](./11-audit-migrasi.md) | Inventaris 32 halaman + 327 postingan → peta migrasi statis |
+| 12 | [Panduan OOP Plugin](./12-oop-plugin.md) | Peta kelas, pewarisan, alur booking, prinsip OOP, cara menambah fitur, catatan RnD |
 
 Mulai dari [01 — Ringkasan](./01-ringkasan.md). Ringkasan umum repo tetap ada di
 [README utama](../README.md).

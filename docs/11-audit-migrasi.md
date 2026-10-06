@@ -1,6 +1,6 @@
 # 11 — Audit Migrasi: 32 Halaman + 327 Postingan
 
-> Indeks: [README](./README.md) · Sebelumnya: [10 — Peta API](./10-api-wordpress.md) · Berikutnya: —
+> Indeks: [README](./README.md) · Sebelumnya: [10 — Peta API](./10-api-wordpress.md) · Berikutnya: [12 — Panduan OOP Plugin](./12-oop-plugin.md)
 
 Inventaris penuh dari REST API publik (Okt 2026): **32 halaman**, **327 postingan**
 (206 Berita + 108 Artikel + 13 lintas/arsip lain), **20 kategori**.
