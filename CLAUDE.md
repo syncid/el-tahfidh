@@ -31,9 +31,6 @@ request.** Jangan membuat cabang atau pull request kecuali pemilik memintanya.
 - Identitas commit: penulis `sync.id <idsyhl@gmail.com>`, pencatat
   `Claude <noreply@anthropic.com>`:
   `git -c user.name=Claude -c user.email=noreply@anthropic.com commit --author="sync.id <idsyhl@gmail.com>"`
-- Jangan memasang workflow GitHub Actions yang menjalankan agen AI sendiri di setiap push
-  lalu commit otomatis tanpa disuruh. Larangan ini untuk bot di GitHub, bukan untuk Claude
-  yang bekerja atas perintah pemilik.
 - Kerjakan hanya repo `syncid/el-tahfidh`.
 
 ## Sinkronisasi
