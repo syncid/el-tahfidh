@@ -14,24 +14,34 @@ ikuti tanpa perlu dijelaskan ulang.
 - Jangan mendesak pemilik untuk segera memberi kata pemicu.
 - Bedakan dengan jelas apa yang sudah terbukti dan apa yang masih dugaan.
 
-## Cara mengirim perubahan (aturan dua jalur)
+## Cara mengirim perubahan
 
-| Perubahan | Cara kirim |
-|---|---|
-| Hanya `docs/`, `README.md`, atau `CLAUDE.md` | Push langsung ke `main`, tanpa pull request |
-| `site/`, `wp-content/` (plugin), `tools/`, `.github/`, atau campuran | Cabang `claude/...` lalu pull request; pemilik yang menggabung |
+Keputusan pemilik (Okt 2026): **semua perubahan dikirim langsung ke `main`, tanpa pull
+request**, setelah pemilik memberi "oke". Jangan membuat cabang atau pull request kecuali
+pemilik memintanya.
 
-Alasan: push ke `site/**` di `main` langsung memicu deploy GitHub Pages, dan perubahan
-plugin bisa merusak situs produksi.
-
-- Sebelum push, tampilkan daftar berkas yang berubah.
+- Sebelum push, tampilkan daftar berkas yang berubah dan tunggu "oke".
+- Ingat dampaknya: push yang menyentuh `site/**` langsung men-deploy GitHub Pages
+  (`syncid.github.io/el-tahfidh`). Kode plugin di `main` **tidak** otomatis terpasang di
+  WordPress; plugin dipasang manual lewat wp-admin (lihat `docs/09-hosting-wordpress.md`).
 - Identitas commit: penulis `sync.id <idsyhl@gmail.com>`, pencatat
   `Claude <noreply@anthropic.com>`:
   `git -c user.name=Claude -c user.email=noreply@anthropic.com commit --author="sync.id <idsyhl@gmail.com>"`
-- Jika alat GitHub untuk membuat pull request gagal, berikan tautan
-  `https://github.com/syncid/el-tahfidh/pull/new/<cabang>` agar pemilik membukanya sendiri.
-- Jika pull request sebuah cabang sudah digabung, mulai ulang cabang itu dari `main` terbaru.
+- Jangan memasang workflow GitHub Actions yang menjalankan agen AI lalu commit otomatis;
+  itu melanggar aturan "diskusikan dulu".
 - Kerjakan hanya repo `syncid/el-tahfidh`.
+
+## Sinkronisasi
+
+`main` di GitHub adalah satu-satunya sumber kebenaran. Desktop pemilik (`C:\el-tahfidh`)
+dan sesi cloud hanya mengambil dari sana dan mengirim ke sana.
+
+- Di awal sesi: jalankan `git fetch origin main` dan pastikan bekerja di atas `main` terbaru.
+- Sebelum push: jalankan `git pull --ff-only origin main` agar tidak menimpa kerja pemilik.
+- Setelah setiap push: ingatkan pemilik untuk menjalankan `tools\sync.bat` (atau `git pull`)
+  di desktop.
+- Jika sesi dimulai dari commit "WIP: uncommitted changes, moved to the cloud", jangan
+  mengirimnya apa adanya; diskusikan dulu isinya dengan pemilik.
 
 ## Kredensial
 

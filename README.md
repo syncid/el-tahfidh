@@ -24,6 +24,37 @@ Memperbarui salinan Kreativa di `referensi\kreativa-mirror\` (butuh WinHTTrack, 
 lalu menjalankan `tools\fixup.py` untuk memperbaiki deteksi bahasa EN/ID di salinan.
 Hasilnya tidak di-commit (folder lokal saja).
 
+```bat
+tools\sync.bat
+```
+Menyinkronkan salinan desktop dengan GitHub: pindah ke `main`, menarik pembaruan, dan
+membersihkan catatan worktree lama. Berhenti dengan pesan jika masih ada perubahan yang
+belum di-commit.
+
+## Sinkronisasi desktop dan GitHub
+
+`main` di GitHub adalah satu-satunya sumber kebenaran. Desktop (`C:\el-tahfidh`) dan sesi
+Claude di cloud sama-sama mengambil dari sana dan mengirim ke sana. Claude mengirim
+perubahan **langsung ke `main`** setelah kamu memberi "oke", tanpa pull request.
+
+1. **Sebelum mulai kerja**, klik dua kali `tools\sync.bat` (atau jalankan
+   `git checkout main` lalu `git pull`).
+2. **Sesudah selesai kerja**, kirim semuanya:
+   ```bat
+   git add -A
+   git commit -m "pesan singkat"
+   git push
+   ```
+   Jangan meninggalkan perubahan yang belum di-commit. Perubahan seperti itu akan terbawa
+   sebagai commit "WIP" bila sesi dipindah ke cloud.
+3. **Setiap kali Claude selesai push dari cloud**, jalankan lagi `tools\sync.bat`.
+4. **Membersihkan worktree lama** (folder di `.claude\worktrees\`):
+   ```bat
+   git worktree list
+   git worktree remove <folder>
+   git worktree prune
+   ```
+
 ## Pratinjau lokal
 
 ```bash

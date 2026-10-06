@@ -38,8 +38,12 @@ Workflow memakai **sparse checkout** (hanya `site/`) + action resmi
 
 Repo sekarang **publik**, jadi branch protection tersedia di akun Free (dulu gagal `403`
 saat repo masih privat). **Terverifikasi 2026-10-02:** run deploy `36991846771` hijau
-(`conclusion=success`), Pages `built`, situs live `HTTP 200`. Berikutnya: pasang wajib PR
-+ status check untuk `main`.
+(`conclusion=success`), Pages `built`, situs live `HTTP 200`.
+
+**Dibatalkan (Okt 2026):** rencana "wajib PR + status check untuk `main`" tidak dipasang.
+Pemilik memutuskan semua perubahan dikirim langsung ke `main` (lihat 6.6 dan `CLAUDE.md`);
+aturan wajib PR akan membuat push langsung ditolak GitHub. Terverifikasi 2026-10-06:
+push langsung ke `main` berhasil, artinya belum ada branch protection.
 
 ## 6.5 Backup folder lokal (`referensi/` di luar git)
 
@@ -50,3 +54,29 @@ saat repo masih privat). **Terverifikasi 2026-10-02:** run deploy `36991846771` 
 | Salinan file | `C:\el-tahfidh-backup-<timestamp>-referensi` | 1579 file cermin, untuk dipakai langsung / restore |
 
 Detail + cara restore: [07 — Referensi Lokal](./07-referensi-lokal.md).
+
+## 6.6 Sinkronisasi desktop, cloud, dan GitHub
+
+| Tempat | Peran |
+|---|---|
+| GitHub `main` | Satu-satunya sumber kebenaran |
+| Desktop `C:\el-tahfidh` | Mengambil sebelum kerja, mengirim sesudah kerja |
+| Sesi Claude di cloud | Selalu mulai dari GitHub; mengirim langsung ke `main` setelah pemilik memberi "oke" |
+
+Rutinitas pemilik:
+
+1. Sebelum kerja dan setiap kali Claude selesai push: jalankan `tools\sync.bat`
+   (pindah ke `main`, `git pull --ff-only`, `git worktree prune`). Skrip berhenti dengan
+   pesan jika masih ada perubahan yang belum di-commit.
+2. Sesudah kerja: `git add -A`, `git commit`, `git push`. Jangan meninggalkan perubahan
+   yang belum di-commit; bila sesi desktop dipindah ke cloud, perubahan itu terbawa sebagai
+   commit "WIP: uncommitted changes, moved to the cloud".
+3. Worktree lama di `.claude\worktrees\` dihapus dengan `git worktree remove <folder>`
+   setelah isinya masuk ke `main`.
+
+Aturan pengiriman untuk Claude ada di `CLAUDE.md` di akar repo, yang dibaca otomatis di
+setiap sesi.
+
+Catatan alat: pada sesi 2026-10-06 alat GitHub (pembuat pull request) di sesi cloud
+gagal dengan galat `invalid session`, sedangkan `git push`/`fetch` tetap berjalan. Karena
+pengiriman kini langsung ke `main`, alat itu tidak lagi diperlukan.

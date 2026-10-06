@@ -23,10 +23,11 @@ el-tahfidh/
 ├── tools/
 │   ├── build_posts.py       # WP API publik → berita.html/artikel.html + thumbnail
 │   ├── fixup.py             # Perbaikan pasca-HTTrack (dipakai .bat di bawah)
-│   └── mirror-kreativa.bat  # Update cermin Kreativa (Windows + WinHTTrack)
+│   ├── mirror-kreativa.bat  # Update cermin Kreativa (Windows + WinHTTrack)
+│   └── sync.bat             # Sinkron desktop ↔ GitHub main (lihat 06 §6.6)
 ├── source-assets/           # Aset mentah unduhan eltahfidh.or.id (arsip kerja)
 ├── docs/                    # Dokumentasi ini (gaya roadmap.sh)
-├── .github/workflows/pages.yml  # Deploy site/ → Pages (NONAKTIF, lihat 06)
+├── .github/workflows/pages.yml  # Deploy site/ → Pages (AKTIF, lihat 06)
 ├── .devcontainer/           # Codespace: PHP 8.3 + Composer, Python 3, gh CLI
 ├── referensi/               # ⚠️ LOKAL SAJA, tidak di-track (lihat 07)
 └── README.md                # Ringkasan umum + cara kerja cloud
