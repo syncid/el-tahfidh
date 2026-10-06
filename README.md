@@ -35,7 +35,8 @@ belum di-commit.
 
 `main` di GitHub adalah satu-satunya sumber kebenaran. Desktop (`C:\el-tahfidh`) dan sesi
 Claude di cloud sama-sama mengambil dari sana dan mengirim ke sana. Claude mengirim
-perubahan **langsung ke `main`** setelah kamu memberi "oke", tanpa pull request.
+perubahan **langsung ke `main`** begitu selesai mengerjakan tugas yang kamu berikan, tanpa
+pull request.
 
 1. **Sebelum mulai kerja**, klik dua kali `tools\sync.bat` (atau jalankan
    `git checkout main` lalu `git pull`).

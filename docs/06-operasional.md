@@ -61,7 +61,7 @@ Detail + cara restore: [07 — Referensi Lokal](./07-referensi-lokal.md).
 |---|---|
 | GitHub `main` | Satu-satunya sumber kebenaran |
 | Desktop `C:\el-tahfidh` | Mengambil sebelum kerja, mengirim sesudah kerja |
-| Sesi Claude di cloud | Selalu mulai dari GitHub; mengirim langsung ke `main` setelah pemilik memberi "oke" |
+| Sesi Claude di cloud | Selalu mulai dari GitHub; mengirim langsung ke `main` begitu tugas dari pemilik selesai |
 
 Rutinitas pemilik:
 

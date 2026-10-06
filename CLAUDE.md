@@ -17,18 +17,23 @@ ikuti tanpa perlu dijelaskan ulang.
 ## Cara mengirim perubahan
 
 Keputusan pemilik (Okt 2026): **semua perubahan dikirim langsung ke `main`, tanpa pull
-request**, setelah pemilik memberi "oke". Jangan membuat cabang atau pull request kecuali
-pemilik memintanya.
+request.** Jangan membuat cabang atau pull request kecuali pemilik memintanya.
 
-- Sebelum push, tampilkan daftar berkas yang berubah dan tunggu "oke".
+- Setelah pemilik menyuruh sebuah pekerjaan (kata pemicu atau perintah yang jelas),
+  kerjakan, lalu **langsung commit dan push** begitu selesai. Tidak perlu meminta "oke" kedua
+  sebelum push.
+- Sesudah push, laporkan berkas yang berubah dan nomor commit-nya.
+- Yang tetap wajib didiskusikan dulu: memulai pekerjaan yang belum disuruh, dan setiap
+  penulisan ke WordPress.
 - Ingat dampaknya: push yang menyentuh `site/**` langsung men-deploy GitHub Pages
   (`syncid.github.io/el-tahfidh`). Kode plugin di `main` **tidak** otomatis terpasang di
   WordPress; plugin dipasang manual lewat wp-admin (lihat `docs/09-hosting-wordpress.md`).
 - Identitas commit: penulis `sync.id <idsyhl@gmail.com>`, pencatat
   `Claude <noreply@anthropic.com>`:
   `git -c user.name=Claude -c user.email=noreply@anthropic.com commit --author="sync.id <idsyhl@gmail.com>"`
-- Jangan memasang workflow GitHub Actions yang menjalankan agen AI lalu commit otomatis;
-  itu melanggar aturan "diskusikan dulu".
+- Jangan memasang workflow GitHub Actions yang menjalankan agen AI sendiri di setiap push
+  lalu commit otomatis tanpa disuruh. Larangan ini untuk bot di GitHub, bukan untuk Claude
+  yang bekerja atas perintah pemilik.
 - Kerjakan hanya repo `syncid/el-tahfidh`.
 
 ## Sinkronisasi
