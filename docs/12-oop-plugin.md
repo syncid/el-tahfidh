@@ -194,10 +194,19 @@ semua kode akses yang pernah dipakai dalam percobaan wajib dicabut setelah RnD.
 **Terbukti**
 - Akun Editor `labib` (id 16) diterima REST API `eltahfidh.or.id` dengan HTTP 200; peran
   `editor`, kemampuan `manage_options` bernilai salah (bukan administrator).
-- Permintaan **tanpa login** dari sesi cloud ke `/wp-json/` dan rute lain dijawab
-  `403 Forbidden` oleh server (halaman HTML, bukan JSON WordPress). Penyebabnya belum
-  diketahui; dugaan awal firewall hosting. Dampaknya: `tools/build_posts.py` yang memanggil API
-  tanpa login mungkin gagal dari lingkungan cloud, walau berhasil di komputer lokal.
+- **Plugin `my-custom-app` tidak aktif di produksi (diuji 2026-10-06).** Daftar rute
+  berlogin memuat 27 namespace tanpa `my-custom-app/v1`, dan `GET /my-custom-app/v1/status`
+  dijawab `404 rest_no_route`. Dengan akun Editor belum bisa dibedakan apakah plugin
+  terpasang-tetapi-nonaktif atau belum terpasang sama sekali (daftar plugin butuh hak
+  `activate_plugins`).
+- **Form `eltahfidh.github.io/survei` masih memakai Google Apps Script** (`API_URL` mengarah
+  ke `script.google.com`), jadi form tetap berfungsi walau plugin tidak aktif.
+- **Penyebab 403: firewall hosting menyaring User-Agent, bukan login atau asal IP.**
+  Permintaan dengan UA persis `Mozilla/5.0` atau UA browser Chrome lengkap ditolak
+  `403 text/html`, baik berlogin maupun tidak. UA lain lolos `200 JSON`: tanpa UA,
+  `curl/8.5.0`, dan UA `build_posts.py` (`Mozilla/5.0 (elTAHFIDH static site builder)`).
+  Artinya `tools/build_posts.py` berjalan normal dari cloud. **Jangan mengganti UA skrip
+  menjadi UA browser.**
 - Ekspor CSV sudah menangkal injeksi rumus lewat `csv_cell()` (sel yang diawali `=`, `+`,
   `-`, `@` diberi awalan).
 
@@ -207,10 +216,9 @@ semua kode akses yang pernah dipakai dalam percobaan wajib dicabut setelah RnD.
   wp-admin "Booking Survei", sedangkan rute REST `/status` hanya untuk administrator.
 
 **Belum diverifikasi**
-- Apakah plugin `my-custom-app` terpasang dan aktif di situs produksi.
-- Apakah namespace `my-custom-app/v1` terdaftar di situs produksi (perlu permintaan
-  berlogin ke daftar rute).
-- Perilaku rute `POST /survei/booking` di produksi (tidak diuji agar tidak menambah data).
+- Apakah plugin belum terpasang atau terpasang-tetapi-nonaktif (perlu dilihat di wp-admin
+  oleh administrator).
+- Perilaku rute `POST /survei/booking` di produksi (baru bisa diuji setelah plugin aktif).
 
 **Temuan audit kode (usulan perbaikan, belum dikerjakan)**
 1. `RateLimiter` memakai `REMOTE_ADDR`; jika situs di belakang proxy atau Cloudflare, semua
