@@ -7,7 +7,7 @@ Sumber data tunggal: [`data/struktur-organisasi.json`](../data/struktur-organisa
 ## 13.1 Aturan penulisan nama
 
 - Semua gelar ditulis lengkap, termasuk *Al-Hafidh* dan *DAN IV Kukkiwon*.
-- Sapaan (Ust., Ustadzah, Umi) tidak disimpan di data; sapaan ditambahkan saat ditampilkan.
+- Sapaan "Ust." dan "Ustadzah" tidak dipakai, baik di data maupun di situs. Sapaan "Abi" (Founder) dan "Umi" (Hj. Zuriati) tetap dipakai saat ditampilkan.
 - Ejaan baku: **Rizal Taufik** (bukan Rijal Taufik/Rizal Taofik) dan **Ridwanulloh** (bukan Ridhwanulloh).
 - Hj. Zuriati dan Asep Ridwanulloh bergelar **M.Ag.**
 - Royan Syahfitrah tidak lagi tercantum dalam struktur.
