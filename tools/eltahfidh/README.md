@@ -7,7 +7,7 @@ Paket Python (pustaka standar saja) untuk:
 2. **Mencadangkan** berkas media ke `db/media/`.
 3. **Membangun halaman jenjang** `site/smp-quran.html`, `site/sma-quran.html`, `site/ifs.html`
    (pengganti subdomain) dari `data/jenjang.json`, `data/struktur-organisasi.json`, dan `db/`.
-4. (fase berikutnya) Membangun berkas impor WordPress (WXR) dari `db/`.
+4. **Membuat berkas impor WordPress (WXR)** per situs ke `db/wxr/<key>.xml`.
 
 `tools/build_posts.py` tetap berdiri sendiri dan tidak bergantung pada paket ini.
 
@@ -64,6 +64,33 @@ Ekspor **hanya membaca** (GET). Ada jeda 2,5 detik antar-permintaan karena serve
 membatasi kecepatan (HTTP 429), dan User-Agent sengaja bukan UA browser karena firewall
 hosting menolaknya (lihat `docs/12-oop-plugin.md` §12.8).
 
+## Berkas impor WordPress (WXR)
+
+```bash
+python -m tools.eltahfidh wxr      # db/wxr/utama.xml + satu berkas per subdomain
+```
+
+- Berkasnya ada di `db/` (lokal) dan **tidak boleh di-commit**: `utama.xml` memuat draf.
+- Isi tiap berkas: postingan, halaman, kategori, tag, dan lampiran media (alamat aslinya).
+  `utama.xml` memakai isi mentah (*raw*) karena diekspor berlogin, termasuk draf;
+  berkas subdomain memakai isi hasil render dan tanpa draf.
+- Postingan subdomain mendapat kategori tambahan bernama situsnya (mis. `smp-quran-putra`)
+  agar tetap terkelompok setelah digabung. ID digeser per situs (`1000000 × urutan`) agar tidak
+  bentrok. Halaman subdomain yang kosong (tata letak Elementor), "Sample Page", dan
+  "Hello world" tidak diikutkan.
+- Tata letak Elementor **tidak** ikut (tidak terbaca lewat REST API); yang terbawa adalah isinya.
+
+Cara impor ke WordPress tujuan (butuh akun Administrator):
+
+1. Cadangkan dulu situs tujuan (UpdraftPlus).
+2. Tools → Import → WordPress (pasang importer bila diminta) → pilih berkas `.xml`.
+3. Petakan penulis `eltahfidh-impor` ke akun yang ada.
+4. Centang **Download and import file attachments** selama situs sumber masih hidup,
+   agar gambar ikut tersalin.
+5. Untuk penggabungan subdomain, impor berkas subdomain ke situs induk satu per satu.
+
+Belum diuji pada WordPress sungguhan; uji dulu di situs staging.
+
 ## Susunan kode
 
 Lapisannya meniru plugin `my-custom-app`:
@@ -86,6 +113,7 @@ Lapisannya meniru plugin `my-custom-app`:
 | Service | `services/article_index.py` | Daftar artikel + nama berkas unik; dipakai bersama dua generator |
 | Service | `services/article_builder.py` | Membangun `site/berita/*.html` dan `data/peta-tautan.json` |
 | Service | `services/content_cleaner.py` | Membuang skrip, gaya sebaris, sisa shortcode dari isi postingan |
+| Service | `services/wxr_exporter.py` | Membuat berkas impor WordPress (WXR 1.2) per situs ke `db/wxr/` |
 | Konfigurasi | `config.py` | Daftar 7 situs, lokasi `db/`, `data/`, `site/`, User-Agent |
 
 ## Uji

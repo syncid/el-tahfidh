@@ -5,6 +5,7 @@
   python -m tools.eltahfidh media --site utama [--limit 50]
   python -m tools.eltahfidh build-berita
   python -m tools.eltahfidh build-jenjang
+  python -m tools.eltahfidh wxr
   python -m tools.eltahfidh status
 
 Kredensial situs induk (opsional) dibaca dari env WP_USER dan WP_APP_PASSWORD.
@@ -17,7 +18,7 @@ import sys
 from . import config
 from .http import HttpError, UrllibClient
 from .repositories import DataRepository, JsonRepository, WpApiRepository
-from .services import ArticleBuilder, ExportService, JenjangBuilder, MediaBackupService
+from .services import ArticleBuilder, ExportService, JenjangBuilder, MediaBackupService, WxrExporter
 
 
 def build_services(db_dir=None):
@@ -93,6 +94,17 @@ def cmd_build_berita(args) -> int:
     return 0
 
 
+def cmd_wxr(args) -> int:
+    _, store, _, _ = build_services()
+    if not store.read_manifest():
+        print(f"Belum ada ekspor di {store.root}; jalankan 'export' dulu.")
+        return 1
+    for key, count in WxrExporter(store).export_all():
+        print(f"db/wxr/{key}.xml: {count} postingan/halaman")
+    print("Berkas WXR ada di db/ (lokal). Jangan di-commit: berkas situs induk memuat draf.")
+    return 0
+
+
 def cmd_status(args) -> int:
     _, store, _, _ = build_services()
     manifest = store.read_manifest()
@@ -125,6 +137,9 @@ def main(argv=None) -> int:
 
     p = sub.add_parser("build-berita", help="Bangun halaman detail site/berita/<slug>.html dari db/.")
     p.set_defaults(func=cmd_build_berita)
+
+    p = sub.add_parser("wxr", help="Buat berkas impor WordPress (WXR) per situs ke db/wxr/.")
+    p.set_defaults(func=cmd_wxr)
 
     p = sub.add_parser("status", help="Ringkasan isi db/.")
     p.set_defaults(func=cmd_status)

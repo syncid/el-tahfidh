@@ -61,7 +61,7 @@ dan sesi cloud hanya mengambil dari sana dan mengirim ke sana.
 - `tools/eltahfidh/`: paket Python OOP (pola sama dengan plugin) untuk ekspor WordPress ke
   `db/` dan generator situs. Lihat `tools/eltahfidh/README.md`. `tools/build_posts.py`
   dibiarkan apa adanya sampai pemilik memutuskan lain.
-- `db/`: "database" hasil ekspor, **hanya lokal**. **Jangan pernah di-commit** atau
+- `db/`: "database" hasil ekspor, termasuk berkas impor WordPress `db/wxr/*.xml`, **hanya lokal**. **Jangan pernah di-commit** atau
   ditaruh di GitHub (sudah di `.gitignore`). Kirim ke pemilik sebagai berkas bila perlu.
 - Tampilan `site/` adalah desain milik pemilik; **jangan** ditiru dari situs WordPress asli.
 - Subdomain jenjang dipangkas: SMP putra/putri, SMA putra/putri, IFS menjadi halaman di
