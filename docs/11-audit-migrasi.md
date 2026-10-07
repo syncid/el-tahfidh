@@ -7,6 +7,14 @@ Inventaris penuh dari REST API publik (Okt 2026): **32 halaman**, **327 postinga
 Kolom "Keputusan" = rekomendasi awal — angka final menunggu 3 keputusan pemilik
 (halaman tool, 326 arsip, akses 20i).
 
+> **Status 7 Oktober 2026.** Sebagian keputusan di bawah sudah dijalankan:
+> halaman jenjang (#9–16) menjadi `smp-quran.html`, `sma-quran.html`, `ifs.html`; SPMB (#7) digabung ke
+> `psb.html`; `site/berita/` kini memuat 327 halaman detail statis, yaitu 293 postingan situs induk
+> dan 34 postingan subdomain (arsip lama ikut dimigrasi, opsi b di §11.3). Dari 381 postingan di 7 situs,
+> 54 tidak ikut karena berupa alat interaktif (generator PP, permainan edukasi) atau "Hello world". Yang masih
+> menunggu keputusan pemilik: halaman alat (#26–31), program (#17–19), e-brosur (#8), dan nasib
+> WordPress beserta gambarnya. Daftar kerja terkini ada di [08 — Roadmap](./08-roadmap.md).
+
 ## 11.1 Ringkasan angka
 
 | Kelompok | Jumlah | Format konten | Catatan |
@@ -29,9 +37,9 @@ Legenda: 🟢 tulis manual sekali · 🟡 otomatis dari API · 🔴 butuh keputu
 | 4 | `kontak-kami` | Kontak (teks pendek — form/widget Elementor?) | `kontak.html` ✅ ada | 🟢 cek form kontaknya |
 | 5 | `home-page-eltahfidh-indonesia` | Duplikat beranda lama (64 ribu char) | — | 🔴 arsipkan/redirect ke `/` |
 | 6 | `program` | konten kosong (menu container?) | — | 🔴 cek menu WP, mungkin hapus |
-| 7 | `spmb-sitem-penerimaan-murid-baru-…` | SPMB panjang | gabung ke `psb.html`? | 🟢 gabung manual |
+| 7 | `spmb-sitem-penerimaan-murid-baru-…` | SPMB panjang | `psb.html` ✅ digabung | 🟢 selesai |
 | 8 | `e-brochure` | e-brosur (teks pendek — file unduhan?) | link aset di `psb.html`? | 🔴 cek file unduhannya |
-| 9–16 | `smp/sma-quran-…-putra/putri` (4), `boarding-school-islam-2`, `smp/sma-islam-boarding`, `islamic-fullday-school-…` | Halaman tiap jenjang (2–15 ribu char) | nav statis menaut ke subdomain (`smpquran.eltahfidh.or.id` …) | 🔴 putuskan: tetap di WP/subdomain, atau dibuatkan halaman statis |
+| 9–16 | `smp/sma-quran-…-putra/putri` (4), `boarding-school-islam-2`, `smp/sma-islam-boarding`, `islamic-fullday-school-…` | Halaman tiap jenjang (2–15 ribu char) | `smp-quran.html`, `sma-quran.html`, `ifs.html` ✅ (dibangun `build-jenjang`) | 🟢 selesai: subdomain dipangkas menjadi halaman statis |
 | 17–19 | `pesantren-karakter/memanah/berkuda`, `full-day-school-islam` | Program pesantren (14–17 ribu char) | belum ada | 🟢 buat bila program aktif |
 | 20 | `pp-17-agustus-2025-eltahfidh` | Event sekali jalan | — | 🔴 arsipkan |
 | 21–23 | `rencana-kegiatan`, `rencana-kegiatan-dan-bahan-berita`, `bahan-berita-baru` | Halaman kerja internal (bukan untuk publik) | — | 🔴 **jangan migrasi**; sembunyikan dari sitemap |
@@ -44,11 +52,12 @@ Legenda: 🟢 tulis manual sekali · 🟡 otomatis dari API · 🔴 butuh keputu
 
 - **12 Berita + 12 Artikel terbaru** → `berita.html`, `artikel.html`, 3 kartu di beranda
   (mekanisme ini **sudah jalan** via `tools/build_posts.py`).
-- **Halaman detail per postingan** (`/berita/<slug>/`) → dibuat generator (rencana Cara A).
+- **Halaman detail per postingan** → ✅ dibuat `python -m tools.eltahfidh build-berita` menjadi
+  `site/berita/<slug>.html`, dengan peta alamat lama di `data/peta-tautan.json`.
   Perhatian: **0 postingan memakai blok Gutenberg** — isi adalah HTML klasik/shortcode,
   jadi generator harus membersihkan shortcode sisa, bukan mengandalkan parser blok.
 - **±300 arsip lama** (Agu 2025 ke belakang) → opsi: (a) tetap dilayani WP sebagai arsip,
-  (b) migrasikan semua jadi statis. Lihat keputusan pemilik #2.
+  (b) migrasikan semua jadi statis. ✅ Dijalankan opsi (b).
 - **Kategori non-berita/artikel** (program, akademik, latihan-kepemimpinan, boarding-*,
   kajian, ubudiyah, taekwondo, …) → **jangan ikut** ke `berita.html`/`artikel.html`;
   kalau mau ditampilkan, buat indeks tersendiri per kebutuhan.

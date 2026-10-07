@@ -6,7 +6,7 @@ from pathlib import Path
 from tools.eltahfidh.config import MAIN_SITE, SUBSITES
 from tools.eltahfidh.repositories import JsonRepository
 from tools.eltahfidh.services import ArticleBuilder, ArticleIndex
-from tools.eltahfidh.services.content_cleaner import clean_content
+from tools.eltahfidh.services.content_cleaner import clean_content, rewrite_links
 from tools.eltahfidh.views.layout import prefix_relative
 
 BASE = """<html><head><title>K</title><meta name="description" content="x">
@@ -27,6 +27,23 @@ class CleanerTest(unittest.TestCase):
 
     def test_keeps_normal_brackets_text(self):
         self.assertIn("[1]", clean_content("<p>Catatan [1] dan [Ar-Rum: 21]</p>"))
+
+
+class RewriteLinksTest(unittest.TestCase):
+    PAGES = {"x.id/kabar-baru": "kabar-baru.html"}
+
+    def test_root_relative_link_points_to_original_wordpress(self):
+        out = rewrite_links('<a href="/pesantren-modern">a</a><img src="/wp-content/a.jpg">', "x.id", self.PAGES)
+        self.assertIn('href="https://x.id/pesantren-modern"', out)
+        self.assertIn('src="https://x.id/wp-content/a.jpg"', out)
+
+    def test_link_to_migrated_post_becomes_internal(self):
+        out = rewrite_links('<a href="https://www.x.id/kabar-baru/#bagian">a</a><a href="/kabar-baru">b</a>'
+                            '<a href="https://lain.id/kabar-baru/">c</a><a href="//cdn.id/a">d</a>', "x.id", self.PAGES)
+        self.assertIn('href="kabar-baru.html#bagian"', out)
+        self.assertIn('href="kabar-baru.html"', out)
+        self.assertIn('href="https://lain.id/kabar-baru/"', out)
+        self.assertIn('href="//cdn.id/a"', out)
 
 
 class PrefixTest(unittest.TestCase):

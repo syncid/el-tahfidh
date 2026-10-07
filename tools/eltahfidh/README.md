@@ -39,12 +39,22 @@ python -m tools.eltahfidh media --dry-run           # hitung jumlah dan ukuran m
 python -m tools.eltahfidh media --site utama        # unduh media situs induk
 python -m tools.eltahfidh build-berita              # bangun halaman detail site/berita/<slug>.html
 python -m tools.eltahfidh build-jenjang             # bangun 3 halaman jenjang di site/
+python -m tools.eltahfidh check-links               # periksa tautan internal di site/
 ```
+
+`check-links` tidak memakai jaringan dan tidak butuh `db/`. Perintah ini memeriksa setiap
+`href`/`src`/`srcset` lokal di berkas HTML dan `url()` di CSS: berkas tujuannya harus ada,
+`#jangkar` harus ada sebagai `id` di halaman tujuan, dan alamat tidak boleh diawali `/`
+(situs dilayani di subfolder `/el-tahfidh/`, jadi alamat absolut rusak di GitHub Pages).
+Tautan ke situs luar tidak diperiksa. Kode keluar 1 bila ada tautan rusak.
 
 Jalankan `build-berita` sebelum `build-jenjang`, karena kartu berita di halaman jenjang
 menaut ke halaman detail. `build-berita` juga menulis `data/peta-tautan.json` (alamat
 WordPress lama → `/berita/<slug>.html`) dan menghapus halaman detail yang artikelnya sudah
 tidak ada di `db/`. Postingan alat interaktif (memuat input/kanvas/tombol) dilewati.
+Tautan di isi postingan disesuaikan: tautan ke postingan yang punya halaman detail diganti menjadi
+tautan internal, dan alamat absolut-akar (`/pesantren-modern`) diganti alamat lengkap situs
+WordPress asalnya.
 
 `build-jenjang` butuh `db/` hasil `export` (untuk berita subdomain). Isi teks halaman
 diubah di `data/jenjang.json`, bukan di HTML. Thumbnail berita diunduh sekali ke
@@ -114,6 +124,7 @@ Lapisannya meniru plugin `my-custom-app`:
 | Service | `services/article_builder.py` | Membangun `site/berita/*.html` dan `data/peta-tautan.json` |
 | Service | `services/content_cleaner.py` | Membuang skrip, gaya sebaris, sisa shortcode dari isi postingan |
 | Service | `services/wxr_exporter.py` | Membuat berkas impor WordPress (WXR 1.2) per situs ke `db/wxr/` |
+| Service | `services/link_checker.py` | Memeriksa tautan, jangkar, dan `url()` CSS internal di `site/` |
 | Konfigurasi | `config.py` | Daftar 7 situs, lokasi `db/`, `data/`, `site/`, User-Agent |
 
 ## Uji
