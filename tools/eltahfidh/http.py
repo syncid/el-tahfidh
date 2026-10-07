@@ -7,9 +7,15 @@ import base64
 import json
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from typing import Protocol
+
+
+def safe_url(url: str) -> str:
+    """Percent-encode karakter non-ASCII (emoji, tanda pisah) di alamat; karakter yang sudah sah dibiarkan."""
+    return urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%~")
 
 
 class HttpError(RuntimeError):
@@ -59,7 +65,7 @@ class UrllibClient:
         for attempt in range(self._retries + 1):
             self._pace()
             try:
-                with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as r:
+                with urllib.request.urlopen(urllib.request.Request(safe_url(url), headers=headers), timeout=60) as r:
                     return Response(r.status, {k.lower(): v for k, v in r.headers.items()}, r.read())
             except urllib.error.HTTPError as e:
                 if e.code == 429 and attempt < self._retries:
@@ -74,7 +80,7 @@ class UrllibClient:
         self._pace(self._download_interval)
         tmp = target.with_name(target.name + ".part")
         target.parent.mkdir(parents=True, exist_ok=True)
-        request = urllib.request.Request(url, headers={"User-Agent": self._ua})
+        request = urllib.request.Request(safe_url(url), headers={"User-Agent": self._ua})
         with urllib.request.urlopen(request, timeout=120) as r, open(tmp, "wb") as out:
             while chunk := r.read(1 << 16):
                 out.write(chunk)

@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-from ..http import HttpClient
+from ..http import HttpClient, HttpError
 from ..models import Media, Site
 from ..repositories import JsonRepository
 
@@ -32,11 +32,19 @@ class MediaBackupService:
         missing = [(m, p) for m, p in items if not p.exists()]
         return MediaPlan(items, missing)
 
-    def run(self, site: Site, limit: int | None = None, progress=None) -> int:
-        """Unduh berkas yang belum ada. Mengembalikan jumlah berkas yang diunduh."""
+    def run(self, site: Site, limit: int | None = None, progress=None) -> tuple[int, list[tuple[str, str]]]:
+        """Unduh berkas yang belum ada. Berkas yang gagal dicatat lalu dilewati agar proses tetap berjalan.
+
+        Mengembalikan (jumlah berhasil, daftar (alamat, galat) yang gagal).
+        """
         todo = self.plan(site).missing[:limit] if limit else self.plan(site).missing
+        done, failed = 0, []
         for index, (media, target) in enumerate(todo, 1):
-            self._client.download(media.source_url, target)
+            try:
+                self._client.download(media.source_url, target)
+                done += 1
+            except (OSError, ValueError, HttpError) as e:  # URLError dan HTTPError turunan OSError
+                failed.append((media.source_url, f"{type(e).__name__}: {e}"))
             if progress:
                 progress(index, len(todo), media)
-        return len(todo)
+        return done, failed

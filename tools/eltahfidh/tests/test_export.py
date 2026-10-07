@@ -74,9 +74,29 @@ class ExportTest(unittest.TestCase):
         ExportService(self.store, NOW).export(WpApiRepository(MAIN_SITE, client), include_private=False)
         backup = MediaBackupService(self.store, client)
         self.assertEqual(backup.plan(MAIN_SITE).total_bytes, 5)
-        self.assertEqual(backup.run(MAIN_SITE), 1)
-        self.assertEqual(backup.run(MAIN_SITE), 0)
+        self.assertEqual(backup.run(MAIN_SITE), (1, []))
+        self.assertEqual(backup.run(MAIN_SITE), (0, []))
         self.assertTrue((self.store.media_dir(MAIN_SITE) / "2026/10/a.jpg").exists())
+
+    def test_media_backup_skips_failed_file_and_continues(self):
+        routes = dict(ROUTES)
+        routes["/wp/v2/media"] = [[
+            {"id": 7, "source_url": "https://x.id/wp-content/uploads/2025/10/rusak.jpg"},
+            {"id": 8, "source_url": "https://x.id/wp-content/uploads/2025/10/baik.jpg"},
+        ]]
+        client = FakeClient(routes)
+        ExportService(self.store, NOW).export(WpApiRepository(MAIN_SITE, client), include_private=False)
+
+        def download(url, target):
+            if "rusak" in url:
+                raise UnicodeEncodeError("ascii", "x", 0, 1, "ordinal not in range")
+            return FakeClient.download(client, url, target)
+        client.download = download
+
+        done, failed = MediaBackupService(self.store, client).run(MAIN_SITE)
+        self.assertEqual(done, 1)
+        self.assertEqual(len(failed), 1)
+        self.assertIn("rusak.jpg", failed[0][0])
 
 
 if __name__ == "__main__":

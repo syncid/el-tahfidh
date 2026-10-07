@@ -67,9 +67,11 @@ def cmd_media(args) -> int:
         print(f"[{site.key}] {len(plan.items)} berkas, {plan.total_bytes / 1e6:.1f} MB; "
               f"belum diunduh {len(plan.missing)} berkas, {plan.missing_bytes / 1e6:.1f} MB")
         if not args.dry_run and plan.missing:
-            done = backup.run(site, limit=args.limit,
-                              progress=lambda i, n, m: print(f"  {i}/{n} {m.upload_path}", flush=True))
-            print(f"[{site.key}] diunduh {done} berkas")
+            done, failed = backup.run(site, limit=args.limit,
+                                      progress=lambda i, n, m: print(f"  {i}/{n} {m.upload_path}", flush=True))
+            print(f"[{site.key}] diunduh {done} berkas, gagal {len(failed)}")
+            for url, error in failed:
+                print(f"  GAGAL {url} -> {error}")
     return 0
 
 
