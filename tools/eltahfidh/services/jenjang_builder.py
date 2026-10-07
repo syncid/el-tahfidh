@@ -10,6 +10,7 @@ from ..http import HttpClient
 from ..models import Content
 from ..repositories import DataRepository, JsonRepository
 from ..views import Layout, components, jenjang_page
+from .article_index import ArticleIndex, is_interactive
 
 POSTS_PER_PAGE = 6
 IMAGE_SIZES = ("medium_large", "large", "medium")
@@ -32,7 +33,10 @@ class JenjangBuilder:
     def build(self, page: dict, content: dict, layout: Layout) -> tuple[str, int]:
         org_cards = [self._org_card(name, content) for name in page["pimpinan"]]
         posts = self._latest_posts(page["sumber_berita"])
-        post_cards = [components.post_card(post, img, "          ") for post, img in posts]
+        internal = ArticleIndex(self._store).by_link()
+        post_cards = [components.post_card(post, img, "          ",
+                                           internal[post.link].href if post.link in internal else None)
+                      for post, img in posts]
         main = jenjang_page.render(page, org_cards, post_cards)
         html = layout.render(page["file"], f"{page['judul']} - elTAHFIDH Indonesia", page["deskripsi"], main)
         (self._site / page["file"]).write_text(html, encoding="utf-8")
@@ -51,7 +55,8 @@ class JenjangBuilder:
         for key in keys:
             site = config.site_by_key(key)
             media = {m["id"]: m for m in self._store.read(site, "media", default=[])}
-            merged += [(site, post, media.get(post.featured_media)) for post in self._store.contents(site, "posts")]
+            merged += [(site, post, media.get(post.featured_media)) for post in self._store.contents(site, "posts")
+                       if not is_interactive(post)]
         merged.sort(key=lambda row: row[1].date, reverse=True)
         return [(post, self._thumbnail(site, post, item)) for site, post, item in merged[:self._limit]]
 

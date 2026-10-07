@@ -37,8 +37,14 @@ python -m tools.eltahfidh export --no-private       # tanpa draf/pengguna/koment
 python -m tools.eltahfidh status                    # ringkasan isi db/
 python -m tools.eltahfidh media --dry-run           # hitung jumlah dan ukuran media
 python -m tools.eltahfidh media --site utama        # unduh media situs induk
+python -m tools.eltahfidh build-berita              # bangun halaman detail site/berita/<slug>.html
 python -m tools.eltahfidh build-jenjang             # bangun 3 halaman jenjang di site/
 ```
+
+Jalankan `build-berita` sebelum `build-jenjang`, karena kartu berita di halaman jenjang
+menaut ke halaman detail. `build-berita` juga menulis `data/peta-tautan.json` (alamat
+WordPress lama → `/berita/<slug>.html`) dan menghapus halaman detail yang artikelnya sudah
+tidak ada di `db/`. Postingan alat interaktif (memuat input/kanvas/tombol) dilewati.
 
 `build-jenjang` butuh `db/` hasil `export` (untuk berita subdomain). Isi teks halaman
 diubah di `data/jenjang.json`, bukan di HTML. Thumbnail berita diunduh sekali ke
@@ -76,6 +82,10 @@ Lapisannya meniru plugin `my-custom-app`:
 | View | `views/layout.py` | Kerangka header/footer dari `site/kontak.html` (cara yang sama dengan `build_posts.py`) |
 | View | `views/components.py` | Kartu berita, pimpinan, kampus, pilar, fakta, program; meniru markup `site/` |
 | View | `views/jenjang_page.py` | Menyusun bagian-bagian halaman jenjang |
+| View | `views/article_page.py` | Halaman detail berita/artikel di `site/berita/` |
+| Service | `services/article_index.py` | Daftar artikel + nama berkas unik; dipakai bersama dua generator |
+| Service | `services/article_builder.py` | Membangun `site/berita/*.html` dan `data/peta-tautan.json` |
+| Service | `services/content_cleaner.py` | Membuang skrip, gaya sebaris, sisa shortcode dari isi postingan |
 | Konfigurasi | `config.py` | Daftar 7 situs, lokasi `db/`, `data/`, `site/`, User-Agent |
 
 ## Uji

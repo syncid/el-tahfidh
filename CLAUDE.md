@@ -67,7 +67,9 @@ dan sesi cloud hanya mengambil dari sana dan mengirim ke sana.
 - Subdomain jenjang dipangkas: SMP putra/putri, SMA putra/putri, IFS menjadi halaman di
   dalam situs; isi SPMB digabung ke `psb.html`. Halaman `site/smp-quran.html`,
   `site/sma-quran.html`, `site/ifs.html` dibangun oleh `python -m tools.eltahfidh build-jenjang`
-  dari `data/jenjang.json`; jangan diedit manual.
+  dari `data/jenjang.json`; jangan diedit manual. Halaman detail `site/berita/*.html` dan
+  `data/peta-tautan.json` dibangun oleh `python -m tools.eltahfidh build-berita`; jangan diedit
+  manual. Urutan bangun: `build-berita` lalu `build-jenjang`.
 - `docs/`: dokumentasi bernomor (01, 02, ...), satu topik satu berkas, dengan navigasi
   Sebelumnya/Berikutnya dan indeks di `docs/README.md`.
 - `referensi/`: hanya ada di komputer lokal pemilik, tidak di-track git.

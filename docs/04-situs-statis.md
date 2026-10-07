@@ -20,6 +20,12 @@ jenjang pengganti subdomain: `smp-quran.html`, `sma-quran.html`, `ifs.html`.
   Ubah isinya di `data/jenjang.json`, lalu bangun ulang (lihat `tools/eltahfidh/README.md`).
 - Menu "Profil" di semua halaman menaut ke ketiga halaman jenjang itu, bukan lagi ke
   subdomain `smpquran`, `smpquranputri`, `smaquran`, `smaquranputri`, dan IFS.
+- **JANGAN edit manual:** `site/berita/*.html` — halaman detail berita/artikel (situs induk
+  kategori Berita dan Artikel, plus berita subdomain) yang dibangun oleh
+  `python -m tools.eltahfidh build-berita` dari `db/`. Postingan yang sebenarnya alat interaktif
+  (generator bingkai foto profil, edu-game) tidak dibuatkan halaman. Gambar tetap menaut ke
+  server WordPress. Peta alamat lama → baru ada di `data/peta-tautan.json` (bahan pengalihan).
+  Kartu berita di halaman jenjang menaut ke halaman detail ini, bukan ke subdomain.
 
 ## 4.2 Pipeline berita & artikel
 

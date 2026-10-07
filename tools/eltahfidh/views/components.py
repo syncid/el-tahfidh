@@ -4,16 +4,20 @@ from html import escape as e
 from ..models import Content
 
 
-def post_card(post: Content, img: str | None, indent: str) -> str:
-    """Sama dengan card() di tools/build_posts.py agar gaya kartu berita seragam."""
+def post_card(post: Content, img: str | None, indent: str, href: str | None = None) -> str:
+    """Sama dengan card() di tools/build_posts.py agar gaya kartu berita seragam.
+
+    href: tautan halaman detail internal; bila kosong, menaut ke artikel asli di WordPress (tab baru).
+    """
     media = (f'<img src="{e(img)}" alt="" loading="lazy">' if img
              else '<div class="post__noimg"><img src="assets/img/logo.png" alt="" loading="lazy"></div>')
+    link = f'<a href="{e(href)}">' if href else f'<a href="{e(post.link)}" target="_blank" rel="noopener">'
     return (
         f'{indent}<article class="card post">\n'
         f'{indent}  <div class="post__media">{media}</div>\n'
         f'{indent}  <div class="post__body">\n'
         f'{indent}    <time datetime="{e(post.date[:10])}">{e(post.date_label)}</time>\n'
-        f'{indent}    <h3><a href="{e(post.link)}" target="_blank" rel="noopener">{e(post.title)}</a></h3>\n'
+        f'{indent}    <h3>{link}{e(post.title)}</a></h3>\n'
         f'{indent}    <p>{e(post.excerpt())}</p>\n'
         f'{indent}  </div>\n'
         f'{indent}</article>'
