@@ -61,7 +61,7 @@ Sumber data tunggal: [`data/struktur-organisasi.json`](../data/struktur-organisa
 ### Al-Qur'an
 
 - **PJ GM:** Mashadi Hariyanto, S.Pd., Al-Hafidh, DAN IV Kukkiwon
-- Program Tahsin & Tahfidh — PJ: Rizal Taufik, S.Pd., Al-Hafidh
+- Program Tahsin & Tahfidh — PJ: Rizal Taufik, S.Pd.I., Al-Hafidh
 - Management Program & Pengembangan — PJ: Salihin, S.Pd., Al-Hafidh
 - Seni Baca Al-Qur'an
 
@@ -77,9 +77,9 @@ Sumber data tunggal: [`data/struktur-organisasi.json`](../data/struktur-organisa
 ### Islamic Full Day School elTAHFIDH
 
 - **Direktur:** Asep Ridwanulloh, S.Pd.I., M.Ag., Al-Hafidh
-- SMAQ elTAHFIDH — PJ: Rizal Taufik, S.Pd., Al-Hafidh
+- SMAQ elTAHFIDH — PJ: Rizal Taufik, S.Pd.I., Al-Hafidh
 - SMPQ elTAHFIDH — PJ: Khoirur Rozikin, S.Pd., Al-Hafidh
-- SDQ elTAHFIDH — PJ: Rizal Taufik, S.Pd., Al-Hafidh
+- SDQ elTAHFIDH — PJ: Rizal Taufik, S.Pd.I., Al-Hafidh
 
 ### SMPQ elTAHFIDH
 
@@ -134,5 +134,5 @@ Sumber data tunggal: [`data/struktur-organisasi.json`](../data/struktur-organisa
 
 ## 13.5 Hal yang belum lengkap
 
-- Foto potret baru tersedia untuk 4 orang: Founder (`founder.png`), Hj. Zuriati (`umi.png`), Sa'dul Hayyi Mufid (`saad.png`), dan Muhammad Adamin (`adam.png`).
+- Foto potret baru tersedia untuk 4 orang: Founder (`founder.png`), Hj. Zuriati (`umi.png`), Sa'dul Hayyi Mufid (`saad.png`), dan Muhammad Adamin (`adam.png`). Di halaman profil, pimpinan tanpa foto ditampilkan dengan kotak berisi nama sampai fotonya tersedia.
 - Beberapa sub-bagian belum memiliki PJ di bagan (misalnya Administrasi & Keuangan, Cabang elTAHFIDH, dan sub-bagian Pesantren Qur'an Akhwat).
