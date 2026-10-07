@@ -17,9 +17,9 @@ Pendukung: skrip Python di `tools/` (ambil berita/artikel dari WP API publik, ba
 
 ## 1.2 Status saat ini (Oktober 2026)
 
-- Situs statis: **6 halaman aktif** — `index`, `profil`, `psb`, `kontak`, `berita`, `artikel` — plus pipeline `tools/build_posts.py` yang menarik 12 berita + 12 artikel terbaru dari `eltahfidh.or.id/wp-json/wp/v2/posts`.
+- Situs statis: **9 halaman utama** — `index`, `profil`, `psb`, `kontak`, `berita`, `artikel`, serta halaman jenjang `smp-quran`, `sma-quran`, `ifs` (pengganti subdomain) — ditambah 327 halaman detail di `site/berita/`. Daftar berita/artikel terbaru dibangun `tools/build_posts.py`; halaman jenjang dan detail dibangun paket `tools/eltahfidh/` dari ekspor lokal `db/`. Situs live di https://syncid.github.io/el-tahfidh/.
 - Plugin: endpoint `POST /wp-json/my-custom-app/v1/survei/booking`, wp-admin **Booking Survei** (daftar, filter tanggal/status/cari, ubah status terjadwal/hadir/batal, ekspor CSV), kapabilitas `mca_manage_bookings`, tabel `{prefix}mca_survey_bookings` dibuat otomatis. Form publik dilayani dari `https://eltahfidh.github.io/survei/`.
-- Repo: privat `syncid/el-tahfidh`, branch `main`, devcontainer + workflow Pages siap (Pages nonaktif menunggu keputusan visibilitas — lihat `docs/06-operasional.md`).
+- Repo: publik `syncid/el-tahfidh`, branch `main` (push langsung tanpa PR), devcontainer + GitHub Pages aktif — lihat `docs/06-operasional.md`.
 
 ## 1.3 Batasan & keputusan penting
 

@@ -1,6 +1,6 @@
 # 09 — Hosting & wp-admin (`eltahfidh.or.id`)
 
-> Indeks: [README](./README.md) · Sebelumnya: [08 — Roadmap](./08-roadmap.md) · Berikutnya: —
+> Indeks: [README](./README.md) · Sebelumnya: [08 — Roadmap](./08-roadmap.md) · Berikutnya: [10 — Peta API](./10-api-wordpress.md)
 
 Dokumen ini mencatat **fakta hosting situs produksi** dan cara mengerjakan
 operasi umum **tanpa perlu panel server** (cukup lewat wp-admin).

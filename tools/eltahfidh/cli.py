@@ -6,6 +6,7 @@
   python -m tools.eltahfidh build-berita
   python -m tools.eltahfidh build-jenjang
   python -m tools.eltahfidh wxr
+  python -m tools.eltahfidh check-links
   python -m tools.eltahfidh status
 
 Kredensial situs induk (opsional) dibaca dari env WP_USER dan WP_APP_PASSWORD.
@@ -18,7 +19,8 @@ import sys
 from . import config
 from .http import HttpError, UrllibClient
 from .repositories import DataRepository, JsonRepository, WpApiRepository
-from .services import ArticleBuilder, ExportService, JenjangBuilder, MediaBackupService, WxrExporter
+from .services import (ArticleBuilder, ExportService, JenjangBuilder, LinkChecker, MediaBackupService,
+                       WxrExporter)
 
 
 def build_services(db_dir=None):
@@ -107,6 +109,14 @@ def cmd_wxr(args) -> int:
     return 0
 
 
+def cmd_check_links(args) -> int:
+    checked, broken = LinkChecker(config.SITE_DIR).check()
+    for link in broken:
+        print(f"{link.source}: {link.target} -> {link.reason}")
+    print(f"Diperiksa {checked} tautan lokal di site/; rusak {len(broken)}.")
+    return 1 if broken else 0
+
+
 def cmd_status(args) -> int:
     _, store, _, _ = build_services()
     manifest = store.read_manifest()
@@ -142,6 +152,9 @@ def main(argv=None) -> int:
 
     p = sub.add_parser("wxr", help="Buat berkas impor WordPress (WXR) per situs ke db/wxr/.")
     p.set_defaults(func=cmd_wxr)
+
+    p = sub.add_parser("check-links", help="Periksa tautan dan jangkar internal di site/ (tanpa jaringan).")
+    p.set_defaults(func=cmd_check_links)
 
     p = sub.add_parser("status", help="Ringkasan isi db/.")
     p.set_defaults(func=cmd_status)
