@@ -37,7 +37,7 @@ Sumber data tunggal: [`data/struktur-organisasi.json`](../data/struktur-organisa
 
 - **GM:** Muhammad Adamin, S.Pd.I., M.E., Al-Hafidh, DAN IV Kukkiwon
 - Kemitraan — PJ: Dani Hamdani, S.Pd., Al-Hafidh
-- Hukum & Perizinan — PJ: Alif Labib Rahman, S.H.
+- Hukum & Perizinan (nama PJ sengaja tidak dicantumkan karena bersifat rahasia)
 - Ziswaf — PJ: Niko Rian Putra, S.Pd.I., M.Sos., Al-Hafidh
 - Usaha — PJ: Tim
 
