@@ -1,6 +1,6 @@
 # 13 — Struktur Organisasi
 
-> Indeks: [README](./README.md) · Sebelumnya: [12 — Panduan OOP Plugin](./12-oop-plugin.md) · Berikutnya: —
+> Indeks: [README](./README.md) · Sebelumnya: [12 — Panduan OOP Plugin](./12-oop-plugin.md) · Berikutnya: [14 — Inventaris Database](./14-inventaris-database.md)
 
 Sumber data tunggal: [`data/struktur-organisasi.json`](../data/struktur-organisasi.json). Isinya transkripsi bagan resmi *Struktur elTAHFIDH Indonesia* yang ditetapkan di Jakarta pada 21 Maret 2026 oleh Abi Dr. H. Jhon Edy Rahman, SH., M.Kn. Jika struktur berubah, perbarui berkas JSON lebih dulu, lalu dokumen ini dan halaman situs.
 

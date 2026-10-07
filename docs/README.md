@@ -21,6 +21,7 @@ ringkasan, diakhiri roadmap. Setiap file punya header navigasi
 | 11 | [Audit Migrasi](./11-audit-migrasi.md) | Inventaris 32 halaman + 327 postingan → peta migrasi statis |
 | 12 | [Panduan OOP Plugin](./12-oop-plugin.md) | Peta kelas, pewarisan, alur booking, prinsip OOP, cara menambah fitur, catatan RnD |
 | 13 | [Struktur Organisasi](./13-struktur-organisasi.md) | Struktur resmi 21 Maret 2026, aturan penulisan nama dan gelar, sumber data `data/struktur-organisasi.json` |
+| 14 | [Inventaris Database](./14-inventaris-database.md) | 85 DB di 12 server StackCP, mekanisme Sign in vs Manage, tabel DB per server |
 
 Mulai dari [01 — Ringkasan](./01-ringkasan.md). Ringkasan umum repo tetap ada di
 [README utama](../README.md).
