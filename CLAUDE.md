@@ -65,7 +65,9 @@ dan sesi cloud hanya mengambil dari sana dan mengirim ke sana.
   ditaruh di GitHub (sudah di `.gitignore`). Kirim ke pemilik sebagai berkas bila perlu.
 - Tampilan `site/` adalah desain milik pemilik; **jangan** ditiru dari situs WordPress asli.
 - Subdomain jenjang dipangkas: SMP putra/putri, SMA putra/putri, IFS menjadi halaman di
-  dalam situs; isi SPMB digabung ke `psb.html`.
+  dalam situs; isi SPMB digabung ke `psb.html`. Halaman `site/smp-quran.html`,
+  `site/sma-quran.html`, `site/ifs.html` dibangun oleh `python -m tools.eltahfidh build-jenjang`
+  dari `data/jenjang.json`; jangan diedit manual.
 - `docs/`: dokumentasi bernomor (01, 02, ...), satu topik satu berkas, dengan navigasi
   Sebelumnya/Berikutnya dan indeks di `docs/README.md`.
 - `referensi/`: hanya ada di komputer lokal pemilik, tidak di-track git.

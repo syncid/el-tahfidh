@@ -1,0 +1,255 @@
+{
+  "catatan": "Isi halaman jenjang (pengganti subdomain). Teks dikurasi dari situs subdomain lama per Oktober 2026; bagian templat (lorem ipsum, testimoni contoh, angka kosong) sengaja tidak dipakai. Pimpinan diambil dari data/struktur-organisasi.json. Dibangun oleh: python -m tools.eltahfidh build-jenjang",
+  "foto_pimpinan": {
+    "Sa'dul Hayyi Mufid": "assets/img/saad.png",
+    "Hj. Zuriati": "assets/img/umi.png",
+    "Muhammad Adamin": "assets/img/adam.png",
+    "Jhon Edy Rahman": "assets/img/founder.png"
+  },
+  "sapaan": {
+    "Hj. Zuriati": "Umi"
+  },
+  "halaman": [
+    {
+      "file": "smp-quran.html",
+      "label": "SMP Qur'an",
+      "judul": "SMP Qur'an elTAHFIDH",
+      "deskripsi": "SMP Qur'an elTAHFIDH: boarding ikhwan dan akhwat serta full day, kurikulum Kemendiknas dipadukan dengan program Al-Qur'an dan pendidikan karakter.",
+      "lead": "Lembaga pendidikan formal dengan kurikulum Kemendiknas yang dipadukan dengan program Al-Qur'an dan pendidikan karakter, untuk mencetak Generasi Indonesia Emas, Generasi Muhammad Al-Fatih.",
+      "kampus": [
+        {
+          "nama": "SMP Qur'an Ikhwan Boarding",
+          "gambar": "assets/img/div-smp-putra.png",
+          "lebar": 878,
+          "tinggi": 353,
+          "teks": "Asrama putra di kompleks Islamic Boarding School elTAHFIDH, Cileungsi."
+        },
+        {
+          "nama": "SMP Qur'an Akhwat Boarding",
+          "gambar": "assets/img/div-smp-putri.png",
+          "lebar": 2560,
+          "tinggi": 900,
+          "teks": "Asrama putri di bawah Pesantren Qur'an Akhwat elTAHFIDH."
+        },
+        {
+          "nama": "SMP Qur'an Full Day",
+          "gambar": "assets/img/div-ifse.png",
+          "lebar": 2560,
+          "tinggi": 737,
+          "teks": "Tanpa asrama, melalui Islamic Full Day School elTAHFIDH.",
+          "tautan": "ifs.html"
+        }
+      ],
+      "visi": "Mencetak para penghafal Al-Qur'an, yang berakhlak Al-Qur'an, yang berilmu pengetahuan dan teknologi, cerdas dan mandiri.",
+      "misi": [
+        "Mampu menguasai ilmu pengetahuan yang diajarkan, baik ilmu bahasa, ilmu pengetahuan dan teknologi, ilmu pengetahuan sosial, maupun ilmu agama.",
+        "Mampu membaca Al-Qur'an dengan baik, menghafal, mengenal tafsir, mengamalkan, serta mengajarkannya.",
+        "Berkepribadian sehat dan kuat, menguasai olahraga dan beladiri, serta mampu mengatur diri sendiri dan orang lain."
+      ],
+      "pilar": [
+        {
+          "judul": "Program Al-Qur'an",
+          "butir": [
+            "Tilawah",
+            "Tahfidh (menghafal Al-Qur'an)",
+            "Tafsir",
+            "Tathbiq (mengamalkan Al-Qur'an)",
+            "Tabligh (menyampaikan Al-Qur'an)"
+          ]
+        },
+        {
+          "judul": "Program Akademik",
+          "butir": [
+            "Kurikulum Kemendiknas"
+          ]
+        },
+        {
+          "judul": "Character Building",
+          "butir": [
+            "Taekwondo",
+            "Berkuda",
+            "Memanah",
+            "Berenang"
+          ]
+        }
+      ],
+      "fakta": [
+        {
+          "angka": "20 Juz",
+          "teks": "Target hafalan selama jenjang SMP"
+        },
+        {
+          "angka": "30 Juz",
+          "teks": "Target khatam dalam 6 tahun SMP dan SMA"
+        }
+      ],
+      "pimpinan": [
+        "SMPQ elTAHFIDH",
+        "Pesantren Qur'an Akhwat"
+      ],
+      "sumber_berita": [
+        "smp-quran-putra",
+        "smp-quran-putri"
+      ]
+    },
+    {
+      "file": "sma-quran.html",
+      "label": "SMA Qur'an",
+      "judul": "SMA Qur'an elTAHFIDH",
+      "deskripsi": "SMA Qur'an elTAHFIDH: boarding ikhwan dan akhwat serta full day, dengan sanad tajwid, jalur kuliah dalam dan luar negeri, dan taekwondo.",
+      "lead": "Lembaga pendidikan formal dengan kurikulum Kemendiknas yang dipadukan dengan program Al-Qur'an dan pendidikan karakter, untuk mencetak Generasi Indonesia Emas, Generasi Muhammad Al-Fatih.",
+      "kampus": [
+        {
+          "nama": "SMA Qur'an Ikhwan Boarding",
+          "gambar": "assets/img/div-sma-putra.png",
+          "lebar": 1559,
+          "tinggi": 590,
+          "teks": "Asrama putra di kompleks Islamic Boarding School elTAHFIDH, Cileungsi."
+        },
+        {
+          "nama": "SMA Qur'an Akhwat Boarding",
+          "gambar": "assets/img/div-sma-putri.png",
+          "lebar": 2560,
+          "tinggi": 899,
+          "teks": "Asrama putri di bawah Pesantren Qur'an Akhwat elTAHFIDH."
+        },
+        {
+          "nama": "SMA Qur'an Full Day",
+          "gambar": "assets/img/div-ifse.png",
+          "lebar": 2560,
+          "tinggi": 737,
+          "teks": "Tanpa asrama, melalui Islamic Full Day School elTAHFIDH.",
+          "tautan": "ifs.html"
+        }
+      ],
+      "unggulan": [
+        {
+          "judul": "Sanad Tajwid Al-Jazary Generasi ke-13",
+          "teks": "Dengan standar bacaan yang diakui, santri siap menjadi rujukan tajwid di masyarakat.",
+          "gambar": "assets/img/program-tajwid.jpg",
+          "lebar": 768,
+          "tinggi": 883,
+          "alt": "Santriwati elTAHFIDH menerima sanad Matan Al-Jazary",
+          "kelas_gambar": "program__media--top"
+        },
+        {
+          "judul": "Lulus Masuk PTN Favorit Dalam & Luar Negeri",
+          "teks": "Santri dapat melanjutkan ke jenjang kuliah, baik di dalam maupun di luar negeri.",
+          "gambar": "assets/img/program-kuliah.jpg",
+          "lebar": 768,
+          "tinggi": 960,
+          "alt": "Pelepasan santriwati SMA Qur'an elTAHFIDH lanjut studi ke Universitas Al-Azhar Kairo",
+          "kelas_gambar": "program__media--first"
+        },
+        {
+          "judul": "Sabuk Hitam Taekwondo Direct International",
+          "teks": "Terkoneksi dengan Taekwondo dunia di Korea Selatan.",
+          "gambar": "assets/img/program-taekwondo.jpg",
+          "lebar": 1024,
+          "tinggi": 768,
+          "alt": "Tim taekwondo putri elTAHFIDH peraih medali Kejuaraan Taekwondo MGPD 2026"
+        }
+      ],
+      "pilar": [
+        {
+          "judul": "Program Al-Qur'an",
+          "butir": [
+            "Tilawah",
+            "Tahfidh (menghafal Al-Qur'an)",
+            "Tafsir",
+            "Tathbiq (mengamalkan Al-Qur'an)",
+            "Tabligh (menyampaikan Al-Qur'an)"
+          ]
+        },
+        {
+          "judul": "Program Akademik",
+          "butir": [
+            "Kurikulum Kemendiknas"
+          ]
+        },
+        {
+          "judul": "Character Building",
+          "butir": [
+            "Taekwondo",
+            "Berkuda",
+            "Memanah",
+            "Berenang"
+          ]
+        }
+      ],
+      "fakta": [
+        {
+          "angka": "10 Juz",
+          "teks": "Target hafalan selama jenjang SMA"
+        },
+        {
+          "angka": "30 Juz",
+          "teks": "Target khatam dalam 6 tahun SMP dan SMA"
+        }
+      ],
+      "pimpinan": [
+        "SMAQ elTAHFIDH",
+        "Pesantren Qur'an Akhwat"
+      ],
+      "sumber_berita": [
+        "sma-quran-putra",
+        "sma-quran-putri"
+      ]
+    },
+    {
+      "file": "ifs.html",
+      "label": "Islamic Full Day School",
+      "judul": "Islamic Full Day School elTAHFIDH",
+      "deskripsi": "Islamic Full Day School elTAHFIDH: SD, SMP, dan SMA Qur'an tanpa asrama dengan pendidikan holistik berbasis Al-Qur'an.",
+      "lead": "SD, SMP, dan SMA Qur'an tanpa asrama di bawah jaringan elTAHFIDH Indonesia, dengan pendidikan holistik yang mengasah akal, jasad, dan ruh berdasarkan Al-Qur'an.",
+      "kampus": [
+        {
+          "nama": "SD Qur'an elTAHFIDH",
+          "teks": "Pendidikan holistik yang mengasah akal, jasad, dan ruh. Taglinenya Cerdas, Mandiri, dan Qur'ani, dengan program yang dirintis sejak 2005 di lingkungan para penghafal Al-Qur'an."
+        },
+        {
+          "nama": "SMP Qur'an Full Day",
+          "teks": "Kurikulum Kemendiknas dipadukan dengan program Al-Qur'an dan pendidikan karakter.",
+          "tautan": "smp-quran.html"
+        },
+        {
+          "nama": "SMA Qur'an Full Day",
+          "teks": "Kurikulum Kemendiknas dipadukan dengan program Al-Qur'an dan pendidikan karakter.",
+          "tautan": "sma-quran.html"
+        }
+      ],
+      "pilar": [
+        {
+          "judul": "Program Al-Qur'an",
+          "butir": [
+            "Tilawah",
+            "Tahfidh (menghafal Al-Qur'an)",
+            "Tafsir",
+            "Tathbiq (mengamalkan Al-Qur'an)",
+            "Tabligh (menyampaikan Al-Qur'an)"
+          ]
+        },
+        {
+          "judul": "Program Akademik",
+          "butir": [
+            "Kurikulum Kemendiknas"
+          ]
+        },
+        {
+          "judul": "Pendidikan Karakter",
+          "butir": [
+            "Akal, jasad, dan ruh dibina bersama",
+            "Cerdas, Mandiri, dan Qur'ani"
+          ]
+        }
+      ],
+      "fakta": [],
+      "pimpinan": [
+        "Islamic Full Day School elTAHFIDH"
+      ],
+      "sumber_berita": [
+        "ifs"
+      ]
+    }
+  ]
+}

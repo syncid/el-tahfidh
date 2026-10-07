@@ -6,13 +6,20 @@
 
 Semua halaman berbagi kerangka header/footer yang sama (disalin dari `kontak.html`
 sebagai acuan). Daftar halaman: `index.html` (beranda), `profil.html`, `psb.html`
-(penerimaan santri), `kontak.html`, `berita.html`, `artikel.html`.
+(penerimaan santri), `kontak.html`, `berita.html`, `artikel.html`, serta tiga halaman
+jenjang pengganti subdomain: `smp-quran.html`, `sma-quran.html`, `ifs.html`.
 
 - **Edit manual yang aman:** `index.html`, `profil.html`, `psb.html`, `kontak.html`,
   dan segala di `assets/` kecuali `assets/img/posts/`.
 - **JANGAN edit manual:** `berita.html`, `artikel.html`, dan blok
   `<!-- POSTS:home -->` di `index.html` — ketiganya ditulis ulang oleh
   `tools/build_posts.py`.
+- **JANGAN edit manual:** `smp-quran.html`, `sma-quran.html`, `ifs.html` — dibangun
+  oleh `python -m tools.eltahfidh build-jenjang` dari `data/jenjang.json` (isi),
+  `data/struktur-organisasi.json` (pimpinan), dan berita subdomain di `db/` lokal.
+  Ubah isinya di `data/jenjang.json`, lalu bangun ulang (lihat `tools/eltahfidh/README.md`).
+- Menu "Profil" di semua halaman menaut ke ketiga halaman jenjang itu, bukan lagi ke
+  subdomain `smpquran`, `smpquranputri`, `smaquran`, `smaquranputri`, dan IFS.
 
 ## 4.2 Pipeline berita & artikel
 

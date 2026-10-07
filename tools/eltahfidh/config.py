@@ -6,6 +6,10 @@ from .models import Site
 
 REPO = Path(__file__).resolve().parents[2]
 
+# Data publik yang dikurasi (di-commit) dan folder situs statis.
+DATA_DIR = REPO / "data"
+SITE_DIR = REPO / "site"
+
 # "Database" lokal. Diabaikan git (.gitignore: /db/); boleh dipindah lewat env ELTAHFIDH_DB.
 DB_DIR = Path(os.environ.get("ELTAHFIDH_DB") or REPO / "db")
 

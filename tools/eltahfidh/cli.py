@@ -3,6 +3,7 @@
   python -m tools.eltahfidh export [--sites utama,smp-quran-putra] [--no-private]
   python -m tools.eltahfidh media --dry-run
   python -m tools.eltahfidh media --site utama [--limit 50]
+  python -m tools.eltahfidh build-jenjang
   python -m tools.eltahfidh status
 
 Kredensial situs induk (opsional) dibaca dari env WP_USER dan WP_APP_PASSWORD.
@@ -14,8 +15,8 @@ import sys
 
 from . import config
 from .http import HttpError, UrllibClient
-from .repositories import JsonRepository, WpApiRepository
-from .services import ExportService, MediaBackupService
+from .repositories import DataRepository, JsonRepository, WpApiRepository
+from .services import ExportService, JenjangBuilder, MediaBackupService
 
 
 def build_services(db_dir=None):
@@ -70,6 +71,17 @@ def cmd_media(args) -> int:
     return 0
 
 
+def cmd_build_jenjang(args) -> int:
+    client, store, _, _ = build_services()
+    if not store.read_manifest():
+        print(f"Belum ada ekspor di {store.root}; jalankan 'export' dulu.")
+        return 1
+    builder = JenjangBuilder(store, DataRepository(config.DATA_DIR), client, config.SITE_DIR)
+    for file, posts in builder.build_all():
+        print(f"site/{file}: {posts} berita")
+    return 0
+
+
 def cmd_status(args) -> int:
     _, store, _, _ = build_services()
     manifest = store.read_manifest()
@@ -96,6 +108,9 @@ def main(argv=None) -> int:
     p.add_argument("--dry-run", action="store_true", help="Hanya hitung jumlah dan ukuran.")
     p.add_argument("--limit", type=int, help="Batasi jumlah unduhan per situs.")
     p.set_defaults(func=cmd_media)
+
+    p = sub.add_parser("build-jenjang", help="Bangun site/smp-quran.html, sma-quran.html, ifs.html dari data/ dan db/.")
+    p.set_defaults(func=cmd_build_jenjang)
 
     p = sub.add_parser("status", help="Ringkasan isi db/.")
     p.set_defaults(func=cmd_status)

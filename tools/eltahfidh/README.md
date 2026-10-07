@@ -5,7 +5,9 @@ Paket Python (pustaka standar saja) untuk:
 1. **Mengekspor** konten WordPress elTAHFIDH (situs induk dan 6 subdomain) ke folder
    lokal `db/`, yaitu "database" proyek ini.
 2. **Mencadangkan** berkas media ke `db/media/`.
-3. (fase berikutnya) Membangun halaman statis `site/` dan berkas impor WordPress (WXR) dari `db/`.
+3. **Membangun halaman jenjang** `site/smp-quran.html`, `site/sma-quran.html`, `site/ifs.html`
+   (pengganti subdomain) dari `data/jenjang.json`, `data/struktur-organisasi.json`, dan `db/`.
+4. (fase berikutnya) Membangun berkas impor WordPress (WXR) dari `db/`.
 
 `tools/build_posts.py` tetap berdiri sendiri dan tidak bergantung pada paket ini.
 
@@ -35,7 +37,12 @@ python -m tools.eltahfidh export --no-private       # tanpa draf/pengguna/koment
 python -m tools.eltahfidh status                    # ringkasan isi db/
 python -m tools.eltahfidh media --dry-run           # hitung jumlah dan ukuran media
 python -m tools.eltahfidh media --site utama        # unduh media situs induk
+python -m tools.eltahfidh build-jenjang             # bangun 3 halaman jenjang di site/
 ```
+
+`build-jenjang` butuh `db/` hasil `export` (untuk berita subdomain). Isi teks halaman
+diubah di `data/jenjang.json`, bukan di HTML. Thumbnail berita diunduh sekali ke
+`site/assets/img/posts/<key>-<id>.<ext>`; hapus berkasnya bila ingin diunduh ulang.
 
 Situs induk diekspor **berlogin** bila env berikut diisi (Application Password, bukan
 sandi login). Tanpa itu, hanya konten terbit yang diambil. Subdomain selalu tanpa login.
@@ -64,7 +71,12 @@ Lapisannya meniru plugin `my-custom-app`:
 | Service | `services/media_backup.py` | Unduh media yang belum ada (berkas sementara lalu ganti nama) |
 | Controller | `cli.py` | Perintah baris; merakit semua objek di `build_services()` |
 | Infrastruktur | `http.py` | Kontrak `HttpClient` dan implementasi `UrllibClient` (jeda, 429) |
-| Konfigurasi | `config.py` | Daftar 7 situs, lokasi `db/`, User-Agent |
+| Repository | `repositories/data_files.py` | Membaca data publik di `data/` (isi jenjang, struktur organisasi) |
+| Service | `services/jenjang_builder.py` | Merakit halaman jenjang dan mengunduh thumbnail berita |
+| View | `views/layout.py` | Kerangka header/footer dari `site/kontak.html` (cara yang sama dengan `build_posts.py`) |
+| View | `views/components.py` | Kartu berita, pimpinan, kampus, pilar, fakta, program; meniru markup `site/` |
+| View | `views/jenjang_page.py` | Menyusun bagian-bagian halaman jenjang |
+| Konfigurasi | `config.py` | Daftar 7 situs, lokasi `db/`, `data/`, `site/`, User-Agent |
 
 ## Uji
 
