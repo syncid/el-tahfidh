@@ -58,6 +58,14 @@ dan sesi cloud hanya mengambil dari sana dan mengirim ke sana.
 - `site/`: situs statis. `berita.html`, `artikel.html`, dan blok `<!-- POSTS:home -->` di
   `index.html` dibangun ulang oleh `tools/build_posts.py`; jangan diedit manual.
 - `wp-content/plugins/my-custom-app/`: plugin WordPress OOP. Lihat `docs/12-oop-plugin.md`.
+- `tools/eltahfidh/`: paket Python OOP (pola sama dengan plugin) untuk ekspor WordPress ke
+  `db/` dan generator situs. Lihat `tools/eltahfidh/README.md`. `tools/build_posts.py`
+  dibiarkan apa adanya sampai pemilik memutuskan lain.
+- `db/`: "database" hasil ekspor, **hanya lokal**. **Jangan pernah di-commit** atau
+  ditaruh di GitHub (sudah di `.gitignore`). Kirim ke pemilik sebagai berkas bila perlu.
+- Tampilan `site/` adalah desain milik pemilik; **jangan** ditiru dari situs WordPress asli.
+- Subdomain jenjang dipangkas: SMP putra/putri, SMA putra/putri, IFS menjadi halaman di
+  dalam situs; isi SPMB digabung ke `psb.html`.
 - `docs/`: dokumentasi bernomor (01, 02, ...), satu topik satu berkas, dengan navigasi
   Sebelumnya/Berikutnya dan indeks di `docs/README.md`.
 - `referensi/`: hanya ada di komputer lokal pemilik, tidak di-track git.

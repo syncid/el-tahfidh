@@ -16,5 +16,10 @@ venv/
 # Lihat docs/07-referensi-lokal.md untuk memulihkan dari backup.
 /referensi/
 
+# LOKAL SAJA: "database" hasil ekspor WordPress (konten, draf, pengguna, media).
+# Dibuat oleh `python -m tools.eltahfidh export`; JANGAN pernah di-commit.
+# Lihat tools/eltahfidh/README.md.
+/db/
+
 # Catatan: vendor/ plugin WordPress diabaikan oleh
 # wp-content/plugins/my-custom-app/.gitignore (dibuat ulang oleh `composer install`).
