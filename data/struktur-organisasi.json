@@ -1,0 +1,373 @@
+{
+  "judul": "Struktur elTAHFIDH Indonesia",
+  "ditetapkan": {
+    "tempat": "Jakarta",
+    "tanggal": "2026-03-21",
+    "oleh": "Abi Dr. H. Jhon Edy Rahman, SH., M.Kn.",
+    "jabatan": "Founder & CEO elTAHFIDH Indonesia"
+  },
+  "catatan": "Transkripsi bagan resmi 21 Maret 2026 dengan koreksi pemilik (Okt 2026): semua gelar dipakai lengkap; ejaan 'Rizal Taufik' dan 'Ridwanulloh'; Zuriati dan Asep bergelar M.Ag.; Royan Syahfitrah tidak lagi tercantum.",
+  "pimpinan": {
+    "nama": "Abi Dr. H. Jhon Edy Rahman, SH., M.Kn.",
+    "jabatan": "Founder & CEO"
+  },
+  "bidang_pusat": [
+    {
+      "nama": "Operasional & Keuangan",
+      "jabatan": "GM",
+      "pimpinan": "Dr. Zainul Hakim, Lc., M.Si.",
+      "unit": [
+        {
+          "nama": "Administrasi & Keuangan",
+          "pj": null
+        },
+        {
+          "nama": "Perbendaharaan",
+          "pj": "Mustofa Kamal, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "Penagihan",
+          "pj": "Emon Lesmana, S.H., Al-Hafidh"
+        },
+        {
+          "nama": "Kasir",
+          "pj": "M. Iqro' Mahfudl Al-Rozi, S.Pd., Al-Hafidh"
+        }
+      ]
+    },
+    {
+      "nama": "Humas & Kesekretariatan",
+      "jabatan": "PJ GM",
+      "pimpinan": "Ibnu Soubari, S.Pd.I., Al-Hafidh",
+      "unit": [
+        {
+          "nama": "Humas & Komunikasi",
+          "pj": "Rizki Maulana, S.Pd., Al-Hafidh",
+          "sub": [
+            "Komunikasi",
+            "Event",
+            "Media",
+            "Humas Internal"
+          ]
+        },
+        {
+          "nama": "Kesekretariatan",
+          "pj": "Azmi Aga Silfian, S.Ag."
+        },
+        {
+          "nama": "Cabang elTAHFIDH",
+          "pj": null
+        }
+      ]
+    },
+    {
+      "nama": "Kemitraan, Usaha, Hukum & Ziswaf",
+      "jabatan": "GM",
+      "pimpinan": "Muhammad Adamin, S.Pd.I., M.E., Al-Hafidh, DAN IV Kukkiwon",
+      "unit": [
+        {
+          "nama": "Kemitraan",
+          "pj": "Dani Hamdani, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "Hukum & Perizinan",
+          "pj": "Alif Labib Rahman, S.H."
+        },
+        {
+          "nama": "Ziswaf",
+          "pj": "Niko Rian Putra, S.Pd.I., M.Sos., Al-Hafidh"
+        },
+        {
+          "nama": "Usaha",
+          "pj": "Tim"
+        }
+      ]
+    },
+    {
+      "nama": "Teritorial",
+      "jabatan": "PJ GM",
+      "pimpinan": "Hadi Mulya, S.Pd.I., S.E., Al-Hafidh, DAN IV Kukkiwon",
+      "unit": [
+        {
+          "nama": "Kemitraan Lembaga dan Masyarakat",
+          "pj": null
+        },
+        {
+          "nama": "Pandemi & Bencana",
+          "pj": null
+        },
+        {
+          "nama": "Kebersihan, Keamanan dan Ketertiban",
+          "pj": null
+        },
+        {
+          "nama": "Administrasi, Personalia & Pelatihan",
+          "pj": "Rahmat Rido K., S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "Seni & Budaya",
+          "pj": "Irbah Taqiyyah Rahman, S.Pd."
+        }
+      ]
+    },
+    {
+      "nama": "Pembangunan dan Pemeliharaan Sarana & Prasarana",
+      "jabatan": "PLT GM",
+      "pimpinan": "Wijianto, S.Pd.I., M.M., Al-Hafidh",
+      "unit": [
+        {
+          "nama": "Pembangunan",
+          "pj": "Muhammad Yatim"
+        },
+        {
+          "nama": "Agro",
+          "pj": "Iwan Dani, S.E., Al-Hafidh"
+        },
+        {
+          "nama": "Sarana & Prasarana",
+          "pj": "Muhammad Yusuf Habibi, Al-Hafidh"
+        },
+        {
+          "nama": "Pemeliharaan",
+          "pj": "Hudzaifah, S.Pd., Al-Hafidh"
+        }
+      ]
+    },
+    {
+      "nama": "Al-Qur'an",
+      "jabatan": "PJ GM",
+      "pimpinan": "Mashadi Hariyanto, S.Pd., Al-Hafidh, DAN IV Kukkiwon",
+      "unit": [
+        {
+          "nama": "Program Tahsin & Tahfidh",
+          "pj": "Rizal Taufik, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "Management Program & Pengembangan",
+          "pj": "Salihin, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "Seni Baca Al-Qur'an",
+          "pj": null
+        }
+      ]
+    },
+    {
+      "nama": "Kepemudaan",
+      "jabatan": "GM",
+      "pimpinan": "Muhammad Adamin, S.Pd.I., M.E., Al-Hafidh, DAN IV Kukkiwon",
+      "unit": [
+        {
+          "nama": "Administrasi Kepemudaan",
+          "pj": "Hadi Mulya, S.Pd.I., S.E., Al-Hafidh, DAN IV Kukkiwon"
+        },
+        {
+          "nama": "Kurikulum Kepemudaan",
+          "pj": "Mashadi Hariyanto, S.Pd., Al-Hafidh, DAN IV Kukkiwon"
+        },
+        {
+          "nama": "Program Kepemudaan",
+          "pj": "J. Hafizi Siregar, S.Pd., M.A., Al-Hafidh"
+        }
+      ]
+    }
+  ],
+  "lembaga_mandiri": [
+    {
+      "nama": "Islamic Full Day School elTAHFIDH",
+      "jabatan": "Direktur",
+      "pimpinan": "Asep Ridwanulloh, S.Pd.I., M.Ag., Al-Hafidh",
+      "unit": [
+        {
+          "nama": "SMAQ elTAHFIDH",
+          "pj": "Rizal Taufik, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "SMPQ elTAHFIDH",
+          "pj": "Khoirur Rozikin, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "SDQ elTAHFIDH",
+          "pj": "Rizal Taufik, S.Pd., Al-Hafidh"
+        }
+      ]
+    },
+    {
+      "nama": "SMPQ elTAHFIDH",
+      "jabatan": "Direktur",
+      "pimpinan": "Fathurrahman Aziz, S.Pd.I., Al-Hafidh",
+      "unit": [
+        {
+          "nama": "Kepala SMPQ elTAHFIDH",
+          "pj": "Kutrocahyo, S.Pd., Gr.",
+          "sub": [
+            "Kurikulum",
+            "Kesiswaan",
+            "Sarana Prasarana"
+          ]
+        },
+        {
+          "nama": "Al-Qur'an",
+          "pj": "Ganjar Muharom, S.Pd.I., Al-Hafidh"
+        },
+        {
+          "nama": "Character Building",
+          "pj": "Syamsudin, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "Kepesantrenan",
+          "pj": "Amat Suramat, S.E., Al-Hafidh"
+        }
+      ]
+    },
+    {
+      "nama": "SMAQ elTAHFIDH",
+      "jabatan": "Direktur",
+      "pimpinan": "Sa'dul Hayyi Mufid, Lc., M.E., Al-Hafidh",
+      "unit": [
+        {
+          "nama": "Kepala SMAQ elTAHFIDH",
+          "pj": "Bambang Purwanto, S.S., Gr.",
+          "sub": [
+            "Kurikulum",
+            "Kesiswaan",
+            "Sarana Prasarana"
+          ]
+        },
+        {
+          "nama": "Character Building & Kepesantrenan",
+          "pj": "Romi Arles, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "Al-Qur'an",
+          "pj": "J. Hafizi Siregar, S.Pd., M.A., Al-Hafidh"
+        },
+        {
+          "nama": "Olahraga & Keamanan",
+          "pj": "Salihin, S.Pd., Al-Hafidh"
+        }
+      ]
+    },
+    {
+      "nama": "Program Da'i Hafal Qur'an",
+      "jabatan": "Direktur",
+      "pimpinan": "Dr. Zainul Hakim, Lc., M.Si.",
+      "wakil": "Mashadi Hariyanto, S.Pd., Al-Hafidh, DAN IV Kukkiwon",
+      "unit": [
+        {
+          "nama": "Pendidikan & Al-Qur'an",
+          "pj": "Eko Fiqi, S.Pd., Al-Hafidh"
+        },
+        {
+          "nama": "Character Building (Kepesantrenan & Olahraga)",
+          "pj": "Nur Prasetyo, S.Pd., Al-Hafidh"
+        }
+      ]
+    },
+    {
+      "nama": "Pesantren Qur'an Akhwat",
+      "jabatan": "Direktur",
+      "pimpinan": "Hj. Zuriati, S.Pd., M.Ag.",
+      "unit": [
+        {
+          "nama": "Da'iyah Hafal Qur'an",
+          "pj": null,
+          "sub": [
+            "Al-Qur'an",
+            "Pendidikan",
+            "Character Building"
+          ]
+        },
+        {
+          "nama": "SMA Qur'an",
+          "pj": null,
+          "sub": [
+            "Al-Qur'an",
+            "Pendidikan",
+            "Character Building"
+          ]
+        },
+        {
+          "nama": "SMP Qur'an",
+          "pj": null,
+          "sub": [
+            "Al-Qur'an",
+            "Pendidikan",
+            "Character Building"
+          ]
+        }
+      ]
+    },
+    {
+      "nama": "Satuan Bisnis Unit (SBU)",
+      "unit": [
+        {
+          "nama": "Koperasi PQE",
+          "pj": "Hj. Zuriati, S.Pd., M.Ag.",
+          "jabatan_pj": "Direktur",
+          "sub": [
+            "Sembako",
+            "Laundry",
+            "elMART",
+            "Catering"
+          ]
+        },
+        {
+          "nama": "Koperasi PQI",
+          "pj": "Wijianto, S.Pd.I., M.M., Al-Hafidh",
+          "jabatan_pj": "Direktur"
+        }
+      ]
+    },
+    {
+      "nama": "Organisasi Kepemudaan dan Olahraga",
+      "unit": [
+        {
+          "nama": "PPTEI",
+          "pj": "Muhammad Adamin, S.Pd.I., M.E., Al-Hafidh, DAN IV Kukkiwon",
+          "jabatan_pj": "Ketua"
+        },
+        {
+          "nama": "PBTEI",
+          "pj": "Ibnu Soubari, S.Pd.I., Al-Hafidh",
+          "jabatan_pj": "Direktur"
+        },
+        {
+          "nama": "elTAHFIDH Adventure",
+          "pj": "Wijianto, S.Pd.I., M.M., Al-Hafidh",
+          "jabatan_pj": "Direktur"
+        },
+        {
+          "nama": "PPREI",
+          "pj": "Fathurrahman Aziz, S.Pd.I., Al-Hafidh",
+          "jabatan_pj": "Direktur"
+        },
+        {
+          "nama": "PP Memanah & Berkuda",
+          "pj": "Wijianto, S.Pd.I., M.M., Al-Hafidh",
+          "jabatan_pj": "Direktur"
+        }
+      ]
+    },
+    {
+      "nama": "STEI elTAHFIDH",
+      "jabatan": "Direktur",
+      "pimpinan": "Dr. Zainul Hakim, Lc., M.Si.",
+      "wakil": "Hj. Zuriati, S.Pd., M.Ag.",
+      "unit": [
+        {
+          "nama": "Akademik",
+          "pj": null
+        },
+        {
+          "nama": "Litbang",
+          "pj": null
+        },
+        {
+          "nama": "Kemahasiswaan",
+          "pj": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # 12 — Panduan OOP Plugin `my-custom-app`
 
-> Indeks: [README](./README.md) · Sebelumnya: [11 — Audit Migrasi](./11-audit-migrasi.md) · Berikutnya: —
+> Indeks: [README](./README.md) · Sebelumnya: [11 — Audit Migrasi](./11-audit-migrasi.md) · Berikutnya: [13 — Struktur Organisasi](./13-struktur-organisasi.md)
 
 Dokumen ini menjelaskan **cara kode plugin disusun secara berorientasi objek (OOP)**:
 siapa mewarisi siapa, siapa memanggil siapa, dan bagaimana menambah fitur baru dengan
