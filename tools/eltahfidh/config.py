@@ -20,6 +20,9 @@ USER_AGENT = "Mozilla/5.0 (elTAHFIDH static site builder)"
 # Jeda minimum antar-permintaan ke server 20i. Sekitar 30 permintaan beruntun dijawab 429.
 REQUEST_INTERVAL = 2.5
 
+# Jeda antar-unduhan berkas media. Berkas dilayani StackCDN (bukan PHP WordPress), jadi lebih rapat.
+MEDIA_INTERVAL = 0.5
+
 MAIN_SITE = Site("utama", "eltahfidh.or.id", "elTAHFIDH Indonesia")
 
 SUBSITES = [

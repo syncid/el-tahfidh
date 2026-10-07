@@ -22,7 +22,7 @@ from .services import ArticleBuilder, ExportService, JenjangBuilder, MediaBackup
 
 
 def build_services(db_dir=None):
-    client = UrllibClient(config.USER_AGENT, config.REQUEST_INTERVAL)
+    client = UrllibClient(config.USER_AGENT, config.REQUEST_INTERVAL, download_interval=config.MEDIA_INTERVAL)
     store = JsonRepository(db_dir or config.DB_DIR)
     return client, store, ExportService(store), MediaBackupService(store, client)
 

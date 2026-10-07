@@ -39,9 +39,13 @@ class HttpClient(Protocol):
 class UrllibClient:
     """Klien produksi berbasis urllib. Kredensial hanya dipakai di header, tidak pernah dicatat."""
 
-    def __init__(self, user_agent: str, interval: float, retries: int = 3, sleep=time.sleep, now=time.monotonic):
+    def __init__(self, user_agent: str, interval: float, retries: int = 3, sleep=time.sleep, now=time.monotonic,
+                 download_interval: float | None = None):
+        """interval: jeda antar-permintaan REST API. download_interval: jeda antar-unduhan berkas
+        (berkas media dilayani CDN, jadi boleh lebih rapat); bawaan sama dengan interval."""
         self._ua = user_agent
         self._interval = interval
+        self._download_interval = interval if download_interval is None else download_interval
         self._retries = retries
         self._sleep = sleep
         self._now = now
@@ -67,7 +71,7 @@ class UrllibClient:
 
     def download(self, url: str, target) -> int:
         """Unduh ke berkas sementara lalu ganti nama, agar unduhan terputus tidak meninggalkan berkas rusak."""
-        self._pace()
+        self._pace(self._download_interval)
         tmp = target.with_name(target.name + ".part")
         target.parent.mkdir(parents=True, exist_ok=True)
         request = urllib.request.Request(url, headers={"User-Agent": self._ua})
@@ -77,8 +81,8 @@ class UrllibClient:
         tmp.replace(target)
         return target.stat().st_size
 
-    def _pace(self) -> None:
-        wait = self._interval - (self._now() - self._last)
+    def _pace(self, interval: float | None = None) -> None:
+        wait = (self._interval if interval is None else interval) - (self._now() - self._last)
         if wait > 0:
             self._sleep(wait)
         self._last = self._now()

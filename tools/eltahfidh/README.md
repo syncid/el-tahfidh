@@ -60,8 +60,8 @@ set WP_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
 python -m tools.eltahfidh export
 ```
 
-Ekspor **hanya membaca** (GET). Ada jeda 2,5 detik antar-permintaan karena server 20i
-membatasi kecepatan (HTTP 429), dan User-Agent sengaja bukan UA browser karena firewall
+Ekspor **hanya membaca** (GET). Ada jeda 2,5 detik antar-permintaan REST API karena server 20i
+membatasi kecepatan (HTTP 429); unduhan berkas media memakai jeda 0,5 detik karena dilayani StackCDN, dan User-Agent sengaja bukan UA browser karena firewall
 hosting menolaknya (lihat `docs/12-oop-plugin.md` §12.8).
 
 ## Berkas impor WordPress (WXR)
