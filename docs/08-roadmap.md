@@ -25,12 +25,11 @@ Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya · 🔴 menunggu keputus
 - ✅ Berkas impor WordPress (WXR) per situs di `db/wxr/` (belum diuji pada WordPress sungguhan)
 - ✅ Cadangan media lengkap di desktop `C:\el-tahfidh\db\media\`: 2169 berkas, ±1,04 GB, 0 gagal
 - ✅ Pemeriksa tautan internal `python -m tools.eltahfidh check-links` (berkas, jangkar `#`, `url()` di CSS)
+- ✅ Tautan di isi postingan disesuaikan oleh `build-berita`: tautan ke postingan yang sudah dimigrasi menjadi
+  tautan internal, alamat absolut (`/pesantren-modern`) menjadi alamat WordPress lengkap; `check-links` 0 rusak
 
 ## Berikutnya — Situs (`site/`)
 
-- ⬜ Perbaiki 7 tautan rusak dari isi postingan WordPress (alamat absolut seperti `/pesantren-modern`)
-  di `build-berita`: arahkan ke halaman statis bila ada di `data/peta-tautan.json`, selain itu ke alamat
-  WordPress lengkap; hasil `check-links` 7 Okt 2026
 - 🔴 Gambar berita masih diambil dari server WordPress. Bila WordPress akan dimatikan, gambar yang dipakai
   perlu disalin (dikompres) ke `site/assets/`. Butuh keputusan soal nasib WordPress dan ukuran repo
 - 🔴 Halaman yang belum dimigrasi (`docs/11` §11.2): program pesantren (karakter/memanah/berkuda),

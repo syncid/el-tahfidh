@@ -52,6 +52,9 @@ Jalankan `build-berita` sebelum `build-jenjang`, karena kartu berita di halaman 
 menaut ke halaman detail. `build-berita` juga menulis `data/peta-tautan.json` (alamat
 WordPress lama → `/berita/<slug>.html`) dan menghapus halaman detail yang artikelnya sudah
 tidak ada di `db/`. Postingan alat interaktif (memuat input/kanvas/tombol) dilewati.
+Tautan di isi postingan disesuaikan: tautan ke postingan yang punya halaman detail diganti menjadi
+tautan internal, dan alamat absolut-akar (`/pesantren-modern`) diganti alamat lengkap situs
+WordPress asalnya.
 
 `build-jenjang` butuh `db/` hasil `export` (untuk berita subdomain). Isi teks halaman
 diubah di `data/jenjang.json`, bukan di HTML. Thumbnail berita diunduh sekali ke

@@ -10,7 +10,7 @@ from pathlib import Path, PurePosixPath
 from ..repositories import JsonRepository
 from ..views import Layout, article_page
 from .article_index import ArticleIndex
-from .content_cleaner import clean_content
+from .content_cleaner import clean_content, link_key, rewrite_links
 
 FEATURED_SIZES = ("large", "medium_large", "full")
 
@@ -34,9 +34,10 @@ class ArticleBuilder:
         entries = ArticleIndex(self._store).entries()
         media = self._media_maps({entry.site for entry in entries})
 
+        pages = {link_key(entry.post.link): entry.file for entry in entries}
         expected = set()
         for entry in entries:
-            content = clean_content(entry.post.content_html)
+            content = rewrite_links(clean_content(entry.post.content_html), entry.site.host, pages)
             featured = self._featured(media[entry.site.key].get(entry.post.featured_media))
             if featured and _image_stem(featured) in content:
                 featured = None  # gambar unggulan sudah ada di dalam isi; jangan ditampilkan dua kali
