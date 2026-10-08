@@ -6,6 +6,9 @@ Jalankan ulang kapan saja untuk memperbarui:  python tools/build_posts.py
   (header/footer sama), isinya kartu postingan terbaru.
 - Blok <!-- POSTS:home --> di site/index.html diisi 3 berita terbaru.
 - Thumbnail diunduh sekali ke site/assets/img/posts/<id>.<ext>.
+- Kartu menaut ke halaman detail lokal berita/<slug>.html menurut
+  data/peta-tautan.json (jalankan build-berita lebih dulu); postingan yang
+  belum ada di peta tetap menaut ke situs WordPress di tab baru.
 """
 import html
 import json
@@ -13,7 +16,9 @@ import pathlib
 import re
 import urllib.request
 
-SITE = pathlib.Path(__file__).resolve().parent.parent / "site"
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+SITE = ROOT / "site"
+PETA = ROOT / "data" / "peta-tautan.json"
 POST_IMG = SITE / "assets" / "img" / "posts"
 API = "https://eltahfidh.or.id/wp-json/wp/v2/posts"
 UA = {"User-Agent": "Mozilla/5.0 (elTAHFIDH static site builder)"}
@@ -39,6 +44,13 @@ PAGES = [
         "all_url": "https://eltahfidh.or.id/category/artikel/",
     },
 ]
+
+
+def load_peta() -> dict[str, str]:
+    if not PETA.exists():
+        return {}
+    peta = json.loads(PETA.read_text(encoding="utf-8"))
+    return {k.rstrip("/"): v.lstrip("/") for k, v in peta.items()}
 
 
 def get_json(url: str):
@@ -83,6 +95,9 @@ def download(post_id: int, url: str) -> str:
 
 def card(p: dict, indent: str) -> str:
     e = html.escape
+    local = PETA_MAP.get(p["link"].rstrip("/"))
+    link = (f'<a href="{e(local)}">' if local
+            else f'<a href="{e(p["link"])}" target="_blank" rel="noopener">')
     media = (f'<img src="{p["img"]}" alt="" loading="lazy">' if p["img"]
              else '<div class="post__noimg"><img src="assets/img/logo.png" alt="" loading="lazy"></div>')
     return (
@@ -90,7 +105,7 @@ def card(p: dict, indent: str) -> str:
         f'{indent}  <div class="post__media">{media}</div>\n'
         f'{indent}  <div class="post__body">\n'
         f'{indent}    <time datetime="{p["date_iso"]}">{p["date"]}</time>\n'
-        f'{indent}    <h3><a href="{e(p["link"])}" target="_blank" rel="noopener">{e(p["title"])}</a></h3>\n'
+        f'{indent}    <h3>{link}{e(p["title"])}</a></h3>\n'
         f'{indent}    <p>{e(p["excerpt"])}</p>\n'
         f'{indent}  </div>\n'
         f'{indent}</article>'
@@ -127,6 +142,9 @@ def build_page(cfg: dict, posts: list[dict], base: str) -> str:
     </section>
   </main>"""
     return head + main + foot
+
+
+PETA_MAP = load_peta()
 
 
 def main() -> None:
