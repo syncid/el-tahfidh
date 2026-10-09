@@ -22,6 +22,8 @@ ringkasan, diakhiri roadmap. Setiap file punya header navigasi
 | 12 | [Panduan OOP Plugin](./12-oop-plugin.md) | Peta kelas, pewarisan, alur booking, prinsip OOP, cara menambah fitur, catatan RnD |
 | 13 | [Struktur Organisasi](./13-struktur-organisasi.md) | Struktur resmi 21 Maret 2026, aturan penulisan nama dan gelar, sumber data `data/struktur-organisasi.json` |
 | 14 | [Inventaris Database](./14-inventaris-database.md) | 85 DB di 12 server StackCP, mekanisme Sign in vs Manage, tabel DB per server |
+| 15 | [Aturan Kerja](./15-aturan-kerja.md) | Semua aturan kerja beserta alasan: eksekusi, dokumentasi, klasifikasi data, perubahan server, sesi lokal |
+| 16 | [Plan dan RnD](./16-plan-rnd.md) | Kondisi Okt 2026, fase kerja 0–5, butir riset R1–R8, keputusan yang perlu pemilik |
 
 Mulai dari [01 — Ringkasan](./01-ringkasan.md). Ringkasan umum repo tetap ada di
 [README utama](../README.md).

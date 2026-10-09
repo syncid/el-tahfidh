@@ -2,7 +2,10 @@
 
 > Indeks: [README](./README.md) · Sebelumnya: [07 — Referensi Lokal](./07-referensi-lokal.md) · Berikutnya: [09 — Hosting & wp-admin](./09-hosting-wordpress.md)
 
-Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya · 🔴 menunggu keputusan pemilik. Diperbarui: 7 Oktober 2026.
+Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya · 🔴 menunggu keputusan pemilik. Diperbarui: 9 Oktober 2026.
+
+Rencana besar (fase 0–5, RnD, keputusan pemilik) ada di [16 — Plan dan RnD](./16-plan-rnd.md);
+aturan kerja lengkap di [15 — Aturan Kerja](./15-aturan-kerja.md). Roadmap ini daftar butir hariannya.
 
 ## Selesai (Okt 2026)
 
@@ -28,6 +31,21 @@ Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya · 🔴 menunggu keputus
 - ✅ Tautan di isi postingan disesuaikan oleh `build-berita`: tautan ke postingan yang sudah dimigrasi menjadi
   tautan internal, alamat absolut (`/pesantren-modern`) menjadi alamat WordPress lengkap; `check-links` 0 rusak
 
+## Selesai — Audit server StackCP (Okt 2026)
+
+- ✅ Inventaris salinan file manager: 49 WordPress + 2 Moodle, 85 database (`docs/14`)
+- ✅ Pemindaian pola webshell ±256 ribu PHP non-inti: 0 malware (12 positif palsu)
+- ✅ Checksum inti WordPress 49 instalasi: 0 berkas berubah
+- ✅ Aturan kerja dan plan ditulis (`docs/15`, `docs/16`); rincian per situs di `internal/` (tidak di-commit)
+
+## Berikutnya — Pengamanan (Fase 0, `docs/16` §16.2)
+
+- ⬜ Pindahkan salinan file manager dan zip ke luar folder repo di laptop
+- ⬜ Hapus ZIP plugin berbayar dan installer aplikasi dari folder uploads publik
+- ⬜ Hapus berkas sisa (log PHP lama, halaman "under construction")
+- 🔴 Pindahkan rincian nama database `docs/14` ke `internal/` (aturan S5)
+- 🔄 Peta folder → domain → database → status hidup (Fase 1.1, sesi lokal)
+
 ## Berikutnya — Situs (`site/`)
 
 - 🔴 Gambar berita masih diambil dari server WordPress. Bila WordPress akan dimatikan, gambar yang dipakai
@@ -50,7 +68,7 @@ Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya · 🔴 menunggu keputus
 
 - ⬜ Cabut dua Application Password akun `labib` yang dipakai selama ekspor (wp-admin → Profil)
 - ⬜ Hapus catatan DNS mati `lp` dan `daurohsanadalfatihah` (keduanya 404)
-- ⬜ Pulihkan akses email akun 20i (pemilik lupa email login)
+- ⬜ Pulihkan akses email akun 20i (pemilik lupa email login) dan aktifkan 2FA
 - ⬜ CI ringan: `php -l`, uji `tools/eltahfidh`, dan `check-links` tiap push (tidak butuh Pages)
 - ⬜ Jadwal backup `referensi/` lokal (bundle + salinan file) tiap ada update mirror
 - ~~Branch protection + alur PR~~ — dibatalkan; pemilik memilih push langsung ke `main` (`docs/06` §6.4)

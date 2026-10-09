@@ -21,5 +21,9 @@ venv/
 # Lihat tools/eltahfidh/README.md.
 /db/
 
+# LOKAL SAJA: dokumen internal (rincian server per situs, audit keamanan).
+# Klasifikasi "internal" di docs/15-aturan-kerja.md; JANGAN di-commit.
+/internal/
+
 # Catatan: vendor/ plugin WordPress diabaikan oleh
 # wp-content/plugins/my-custom-app/.gitignore (dibuat ulang oleh `composer install`).

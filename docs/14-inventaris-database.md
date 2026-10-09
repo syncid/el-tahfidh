@@ -1,6 +1,6 @@
 # 14 — Inventaris Database (StackCP/20i)
 
-> Indeks: [README](./README.md) · Sebelumnya: [13 — Struktur Organisasi](./13-struktur-organisasi.md) · Berikutnya: —
+> Indeks: [README](./README.md) · Sebelumnya: [13 — Struktur Organisasi](./13-struktur-organisasi.md) · Berikutnya: [15 — Aturan Kerja](./15-aturan-kerja.md)
 
 Jawaban singkat: **tidak**. Menarik dari `MySQL Host Selection` 1x TIDAK
 menarik 85 DB sekaligus. 1x `Sign in` = masuk 1 server saja.

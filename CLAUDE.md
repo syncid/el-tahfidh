@@ -33,6 +33,40 @@ request.** Jangan membuat cabang atau pull request kecuali pemilik memintanya.
   `git -c user.name=Claude -c user.email=noreply@anthropic.com commit --author="sync.id <idsyhl@gmail.com>"`
 - Kerjakan hanya repo `syncid/el-tahfidh`.
 
+## Cara mendokumentasikan pekerjaan
+
+Keputusan pemilik (Okt 2026): **setiap pekerjaan harus rapi dan terdokumentasi, tidak asal.**
+Dokumen mentah (PDF, HTML, CSV, keluaran skrip) hanya lampiran, bukan pengganti dokumentasi.
+
+- Setiap pekerjaan yang mengubah sesuatu atau menghasilkan temuan/keputusan wajib disertai
+  berkas `.md` yang terkait, dalam commit yang sama:
+  1. dokumen bernomor di `docs/` (buat baru atau perbarui yang sudah ada; satu topik satu berkas);
+  2. indeks `docs/README.md` dan navigasi Sebelumnya/Berikutnya di berkas tetangga;
+  3. `docs/08-roadmap.md` (tandai selesai, tambah butir berikutnya);
+  4. README alat atau plugin bila kodenya disentuh (`tools/eltahfidh/README.md`, dan sejenisnya);
+  5. `CLAUDE.md` ini bila ada aturan atau keputusan baru dari pemilik.
+- Aturan lengkap beserta alasannya ada di `docs/15-aturan-kerja.md`; plan dan RnD di
+  `docs/16-plan-rnd.md`.
+- Klasifikasi data sebelum menulis apa pun:
+  - **publik**: boleh di repo (repo ini publik);
+  - **internal**: rincian server per situs, nama database/server/pengguna DB, jalur server,
+    daftar kelemahan. Ditulis ke folder `internal/` (diabaikan git) atau dikirim ke pemilik
+    sebagai berkas, **tidak** di-commit;
+  - **rahasia**: sandi, salt, kunci, cadangan DB berisi data pengguna. Hanya di drive pemilik,
+    tidak pernah ditulis ke repo, `internal/`, maupun chat.
+
+## Perubahan server dan sesi lokal
+
+- Perubahan di StackCP, wp-admin, atau DNS: cadangan dulu, satu situs per langkah, catat apa
+  dan kapan, verifikasi situs masih hidup, dan pemilik yang mengeksekusi atau menyetujui
+  setiap langkah.
+- Situs atau database hanya dihapus setelah diekspor ke cadangan, domainnya terbukti tidak
+  dipakai, dan pemilik lembaga terkait setuju.
+- Salinan server (file manager, zip, `.sql`, cadangan UpdraftPlus) disimpan di luar folder
+  repo, sebaiknya di drive terenkripsi.
+- Sesi lokal di laptop pemilik hanya membaca kecuali pemilik meminta lain. Tugas berat
+  dijalankan di latar dengan berkas kemajuan; hasil ditulis ke scratchpad, bukan ke repo.
+
 ## Sinkronisasi
 
 `main` di GitHub adalah satu-satunya sumber kebenaran. Desktop pemilik (`C:\el-tahfidh`)
@@ -60,7 +94,8 @@ dan sesi cloud hanya mengambil dari sana dan mengirim ke sana.
 - `wp-content/plugins/my-custom-app/`: plugin WordPress OOP. Lihat `docs/12-oop-plugin.md`.
 - `tools/eltahfidh/`: paket Python OOP (pola sama dengan plugin) untuk ekspor WordPress ke
   `db/` dan generator situs. Lihat `tools/eltahfidh/README.md`. `tools/build_posts.py`
-  dibiarkan apa adanya sampai pemilik memutuskan lain.
+  boleh diubah (sejak `31ac419` kartunya menaut ke halaman detail lokal), tetapi tetap berdiri
+  sendiri dan tidak bergantung pada `tools/eltahfidh`.
 - `db/`: "database" hasil ekspor, termasuk berkas impor WordPress `db/wxr/*.xml`, **hanya lokal**. **Jangan pernah di-commit** atau
   ditaruh di GitHub (sudah di `.gitignore`). Kirim ke pemilik sebagai berkas bila perlu.
 - Tampilan `site/` adalah desain milik pemilik; **jangan** ditiru dari situs WordPress asli.
@@ -73,3 +108,5 @@ dan sesi cloud hanya mengambil dari sana dan mengirim ke sana.
 - `docs/`: dokumentasi bernomor (01, 02, ...), satu topik satu berkas, dengan navigasi
   Sebelumnya/Berikutnya dan indeks di `docs/README.md`.
 - `referensi/`: hanya ada di komputer lokal pemilik, tidak di-track git.
+- `internal/`: dokumen internal (rincian server, audit keamanan), diabaikan git. Isinya
+  dikirim ke pemilik sebagai berkas; sesi cloud tidak menyimpannya permanen.
