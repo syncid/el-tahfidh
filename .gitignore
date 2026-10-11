@@ -1,29 +1,34 @@
-# Sampah OS
+/*
+!/site/
+!/LICENSE
+!/README.md
+!/.gitignore
+!/.gitattributes
+!/.github/
+/.github/*
+!/.github/workflows/
+/.github/workflows/*
+!/.github/workflows/pages.yml
 .DS_Store
 Thumbs.db
 ehthumbs.db
 desktop.ini
 *:Zone.Identifier
-
-# Python
 __pycache__/
 *.py[cod]
-.venv/
-venv/
-
-# LOKAL SAJA: cermin situs pihak lain (HTTrack, ~379 MB).
-# Sengaja tidak di-track: diabaikan git, tidak naik ke GitHub/klon cloud.
-# Lihat docs/07-referensi-lokal.md untuk memulihkan dari backup.
-/referensi/
-
-# LOKAL SAJA: "database" hasil ekspor WordPress (konten, draf, pengguna, media).
-# Dibuat oleh `python -m tools.eltahfidh export`; JANGAN pernah di-commit.
-# Lihat tools/eltahfidh/README.md.
-/db/
-
-# LOKAL SAJA: dokumen internal (rincian server per situs, audit keamanan).
-# Klasifikasi "internal" di docs/15-aturan-kerja.md; JANGAN di-commit.
-/internal/
-
-# Catatan: vendor/ plugin WordPress diabaikan oleh
-# wp-content/plugins/my-custom-app/.gitignore (dibuat ulang oleh `composer install`).
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.sql
+*.sql.*
+*.sqlite*
+*.db
+*.dump
+*.bak
+*.zip
+*.7z
+*.tar
+*.gz
