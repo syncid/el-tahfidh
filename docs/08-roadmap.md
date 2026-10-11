@@ -2,7 +2,7 @@
 
 > Indeks: [README](./README.md) · Sebelumnya: [07 — Referensi Lokal](./07-referensi-lokal.md) · Berikutnya: [09 — Hosting & wp-admin](./09-hosting-wordpress.md)
 
-Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya · 🔴 menunggu keputusan pemilik. Diperbarui: 9 Oktober 2026.
+Legenda: ✅ selesai · 🔄 berjalan · ⬜ berikutnya · 🔴 menunggu keputusan pemilik. Diperbarui: 11 Oktober 2026.
 
 Rencana besar (fase 0–5, RnD, keputusan pemilik) ada di [16 — Plan dan RnD](./16-plan-rnd.md);
 aturan kerja lengkap di [15 — Aturan Kerja](./15-aturan-kerja.md). Roadmap ini daftar butir hariannya.
@@ -40,7 +40,7 @@ aturan kerja lengkap di [15 — Aturan Kerja](./15-aturan-kerja.md). Roadmap ini
 
 ## Berikutnya — Pengamanan (Fase 0, `docs/16` §16.2)
 
-- ⬜ Pindahkan salinan file manager dan zip ke luar folder repo di laptop
+- 🔄 Pindahkan salinan file manager dan zip ke luar folder repo: repo sudah bersih, tetapi verifikasi media tujuan menunggu drive cadangan terpasang
 - ⬜ Hapus ZIP plugin berbayar dan installer aplikasi dari folder uploads publik
 - ⬜ Hapus berkas sisa (log PHP lama, halaman "under construction")
 - 🔴 Pindahkan rincian nama database `docs/14` ke `internal/` (aturan S5)

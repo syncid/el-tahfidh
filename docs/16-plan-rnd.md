@@ -13,17 +13,17 @@ lokal laptop. Setiap langkah P dan setiap tulisan ke server menunggu persetujuan
 
 ## 16.1 Kondisi saat ini
 
-| Lapisan | Keadaan (9 Okt 2026) | Sumber |
+| Lapisan | Keadaan (11 Okt 2026) | Sumber |
 |---|---|---|
 | Situs statis | 9 halaman utama + 330 halaman detail berita; `check-links` 0 rusak; 33 uji lulus. Gambar berita masih diambil dari server WordPress. | `python -m tools.eltahfidh check-links`, uji unit |
 | Server StackCP | Satu akun: 49 instalasi WordPress (versi 6.8.1–7.1.3) dan 2 Moodle; 85 database di 12 server database. Hanya 7 situs yang selama ini dikelola repo ini. | Salinan file manager ±7 Okt 2026; `docs/14` |
 | Keamanan | **Bersih dari malware**: 0 webshell di ±256 ribu PHP non-inti; 0 berkas inti WordPress yang berbeda dari checksum resmi. | Audit sesi lokal, 7 Okt 2026 |
 | Cadangan | Hanya situs induk yang punya cadangan (UpdraftPlus 1–2 Okt 2026, termasuk DB). | Isi `wp-content/updraft/` |
-| Data lokal | `db/` (ekspor 7 situs), cadangan media 2.169 berkas (±1 GB), salinan file manager 23,75 GB + zip 15,2 GB. | Laptop pemilik |
+| Data lokal | `db/` (ekspor 7 situs), cadangan media 2.169 berkas (±1 GB); repo bersih dari salinan file manager dan zip, verifikasi media cadangan menunggu drive terpasang. | Laptop pemilik |
 
 Risiko yang tersisa bersifat operasional, bukan peretasan:
 
-1. Salinan server berisi sandi database 49 situs masih berada di dalam folder repo di laptop.
+1. Verifikasi integritas dan ketersediaan salinan server di media cadangan luar belum dipastikan karena drive tujuan belum terpasang (pembersihan repo sudah selesai).
 2. Dua ZIP plugin berbayar dan satu installer aplikasi tersimpan di folder uploads yang bisa diunduh publik.
 3. Tiga situs masih berjalan di PHP 7.4 dan beberapa situs memakai Elementor versi lama serta plugin formulir yang tidak dirawat.
 4. Ada duplikasi plugin (klon Elementor Pro, dua plugin SEO aktif bersamaan) dan berkas sisa (log PHP lama, halaman "under construction").
@@ -35,7 +35,7 @@ Risiko yang tersisa bersifat operasional, bukan peretasan:
 
 | # | Langkah | Pelaksana | Selesai bila |
 |---|---|---|---|
-| 0.1 | Pindahkan salinan file manager dan zip-nya ke luar `C:\el-tahfidh`; aktifkan BitLocker bila tersedia. | L/P | Folder repo hanya berisi repo, `db/`, `referensi/`, `internal/`. |
+| 0.1 | Pindahkan salinan file manager dan zip-nya ke luar `C:\el-tahfidh`; aktifkan BitLocker bila tersedia (repo bersih; verifikasi drive tujuan menunggu drive terpasang). | L/P | Repo bersih dari salinan file manager/zip; verifikasi media cadangan luar saat drive terpasang. |
 | 0.2 | Cabut dua Application Password akun `labib` yang pernah ditulis di chat. | P | Daftar Application Password bersih. |
 | 0.3 | Hapus ZIP plugin berbayar dan installer aplikasi dari folder uploads (lokasi di dokumen internal). | P | URL berkas menghasilkan 404. |
 | 0.4 | Hapus berkas sisa (log PHP lama, halaman "under construction"). | P | Berkas tidak ada lagi. |
@@ -110,4 +110,5 @@ Risiko yang tersisa bersifat operasional, bukan peretasan:
 
 | Tanggal | Perubahan |
 |---|---|
+| 11 Okt 2026 | Pembaruan status Fase 0.1: repo sudah bersih dari salinan file manager dan zip; verifikasi ketersediaan serta integritas pada media tujuan dicatat menunggu drive cadangan terpasang. |
 | 9 Okt 2026 | Versi pertama: fase 0–5, RnD R1–R8, keputusan pemilik. Peta folder → domain → database (Fase 1.1) sedang dikerjakan sesi lokal. |
