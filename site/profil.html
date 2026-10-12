@@ -27,25 +27,40 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="nav" id="nav" aria-label="Menu utama">
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li class="has-sub">
-            <a href="profil.html" aria-current="page" aria-haspopup="true">Profil</a>
-            <ul class="sub">
-              <li><a href="profil.html">Tentang elTAHFIDH</a></li>
-              <li><a href="profil.html#visi-misi">Visi &amp; Misi</a></li>
-              <li><a href="smp-quran.html">SMP Qur'an</a></li>
-              <li><a href="sma-quran.html">SMA Qur'an</a></li>
-              <li><a href="ifs.html">Islamic Full Day School</a></li>
-            </ul>
-          </li>
-          <li><a href="berita.html">Berita</a></li>
-          <li><a href="artikel.html">Artikel</a></li>
-          <li><a href="psb.html">PSB</a></li>
-          <li><a href="kontak.html">Kontak Kami</a></li>
-        </ul>
-        <a class="btn btn--accent nav__cta" href="https://wa.link/g9jplc" target="_blank" rel="noopener">Daftar Sekarang</a>
-      </nav>
+  <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li class="has-sub">
+      <a href="profil.html" aria-current="page" aria-haspopup="false">Profil</a>
+      <ul class="sub">
+        <li><a href="profil.html#pesan-pendiri">Pesan Pendiri</a></li>
+        <li><a href="profil.html#visi-misi">Visi &amp; Misi</a></li>
+        <li><a href="profil.html#kerangka-kurikulum">Kerangka Kurikulum</a></li>
+        <li><a href="profil.html#sejarah">Sejarah</a></li>
+        <li><a href="profil.html#brand-kami">Brand Kami</a></li>
+        <li><a href="profil.html#tanya-jawab">Tanya Jawab</a></li>
+      </ul>
+    </li>
+    <li class="has-sub">
+      <a href="profil.html#jenjang-formal" aria-haspopup="false">Sekolah Kami</a>
+      <ul class="sub">
+        <li><a href="smp-quran.html">SMP Qur’an</a></li>
+        <li><a href="sma-quran.html">SMA Qur’an</a></li>
+        <li><a href="ifs.html">Islamic Full Day School</a></li>
+      </ul>
+    </li>
+    <li><a href="berita.html">Berita</a></li>
+    <li><a href="artikel.html">Artikel</a></li>
+    <li class="has-sub">
+      <a href="psb.html" aria-haspopup="false">Registrasi</a>
+      <ul class="sub">
+        <li><a href="psb.html#proses-penerimaan">Proses Penerimaan</a></li>
+        <li><a href="psb.html#biaya-pendidikan">Biaya Pendidikan</a></li>
+      </ul>
+    </li>
+    <li><a href="kontak.html">Kontak Kami</a></li>
+  </ul>
+  <a class="btn btn--accent nav__cta" href="https://wa.link/g9jplc" target="_blank" rel="noopener">Daftar Sekarang</a>
+</nav>
     </div>
   </header>
 
@@ -61,16 +76,36 @@
     <nav class="subnav" aria-label="Bagian halaman profil">
       <div class="wrap">
         <ul>
+          <li><a href="#pesan-pendiri">Pesan Pendiri</a></li>
           <li><a href="#sekilas">Sekilas</a></li>
           <li><a href="#sejarah">Sejarah</a></li>
           <li><a href="#capaian">Capaian</a></li>
-          <li><a href="#program-utama">Program Utama</a></li>
+          <li><a href="#kerangka-kurikulum">Kerangka Kurikulum</a></li>
           <li><a href="#jenjang-formal">Jenjang</a></li>
           <li><a href="#struktur">Struktur Organisasi</a></li>
           <li><a href="#visi-misi">Visi &amp; Misi</a></li>
+          <li><a href="#brand-kami">Brand Kami</a></li>
+          <li><a href="#tanya-jawab">Tanya Jawab</a></li>
         </ul>
       </div>
     </nav>
+
+    <!-- Pesan Pendiri -->
+    <section class="section" id="pesan-pendiri">
+      <div class="wrap">
+        <header class="section__head">
+          <h2>Pesan Pendiri</h2>
+        </header>
+        <div class="founder card">
+          <img src="assets/img/founder.png" alt="Abi Dr. H. Jhon Edy Rahman, SH., M.Kn." width="768" height="1024" loading="lazy">
+          <div class="founder__txt">
+            <h3>Abi Dr. H. Jhon Edy Rahman, SH., M.Kn.</h3>
+            <p class="role">Founder &amp; CEO elTAHFIDH Indonesia</p>
+            <blockquote>Pendidikan adalah kunci menyiapkan generasi yang kuat. Selamat bergabung di Pesantren Quran elTAHFIDH, untuk mencetak generasi emas Indonesia.</blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Sekilas -->
     <section class="section" id="sekilas">
@@ -135,9 +170,10 @@
     <!-- Program utama -->
     <section class="section section--soft" id="program-utama">
       <div class="wrap">
-        <header class="section__head">
-          <p class="eyebrow eyebrow--dark">Program Utama</p>
-          <h2>3 Program Utama Mencetak Da'i Hafidh</h2>
+        <header class="section__head" id="kerangka-kurikulum">
+          <p class="eyebrow eyebrow--dark">Kerangka Kurikulum</p>
+          <h2>Kerangka Kurikulum: 3 Program Utama</h2>
+          <p>Program memadukan 1/3 Al-Qur'an, 1/3 Akademis, dan 1/3 Character Building.</p>
         </header>
         <div class="pillars">
           <article class="card pillar">
@@ -442,6 +478,31 @@
             </ol>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Brand Kami -->
+    <section class="section section--soft" id="brand-kami">
+      <div class="wrap prose">
+        <h2>Brand Kami</h2>
+        <img src="assets/img/logo.png" alt="elTAHFIDH Indonesia" width="150" height="75">
+        <p>Menuju Pribadi dan Masyarakat Qur'ani.</p>
+        <p>Tampilan situs menggunakan biru #10164f dan #1f2a8a, serta aksen merah #e31e24.</p>
+      </div>
+    </section>
+
+    <!-- Tanya Jawab -->
+    <section class="section" id="tanya-jawab">
+      <div class="wrap prose">
+        <h2>Tanya Jawab</h2>
+        <h3>Apa pilihan sekolahnya?</h3>
+        <p><a href="smp-quran.html">SMP Qur’an</a>, <a href="sma-quran.html">SMA Qur’an</a>, dan <a href="ifs.html">Islamic Full Day School</a>.</p>
+        <h3>Di mana lokasi elTAHFIDH?</h3>
+        <p>Kp. Kubang, Ds. Jatisari, Kec. Cileungsi, Kab. Bogor, Jawa Barat.</p>
+        <h3>Bagaimana cara mendaftar?</h3>
+        <p>Pilih <a href="psb.html#proses-penerimaan">jalur pendaftaran</a> dan isi formulir online atau hubungi panitia.</p>
+        <h3>Bagaimana menghubungi elTAHFIDH?</h3>
+        <p>WhatsApp resmi: <a href="https://wa.link/g9jplc" target="_blank" rel="noopener">0851-8684-8082</a>. Lihat <a href="kontak.html">Kontak Kami</a>.</p>
       </div>
     </section>
 
